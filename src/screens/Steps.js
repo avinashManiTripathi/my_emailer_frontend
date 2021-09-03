@@ -39,7 +39,7 @@ function Steps(props) {
             />
           </div>
         </div>
-        <div className="row">
+        <div className="row mb-3">
           <div className="col txtc">
             <button
               onClick={redirectToForm}

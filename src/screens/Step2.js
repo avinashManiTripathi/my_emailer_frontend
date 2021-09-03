@@ -138,7 +138,7 @@ function Step2(props) {
         <div className="spacer"></div>
         <div className="row jcc ">
           <div className="col-md-7">
-            <div className="row jcc aic">
+            <div className="row jcc aic mb-3 ">
               <div className="col-6 txtr">
                 <button className="raybtnn">Reset</button>
               </div>
