@@ -1,6 +1,6 @@
 import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Landing from "./screens/Landing";
 import Steps from "./screens/Steps";
@@ -19,19 +19,21 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Navbar></Navbar>
-        <Route exact path="/" component={SignIn}></Route>
-        <Route path="/SignIn" component={SignIn}></Route>
-        <Route path="/SignUp" component={SignUp}></Route>
-        <Route path="/landing" component={Landing}></Route>
-        <Route path="/steps" component={Steps}></Route>
-        <Route path="/form" component={Form}></Route>
-        <Route path="/stores" component={Stores}></Route>
-        <Route path="/step1" component={Step1}></Route>
-        <Route path="/preview" component={Step2}></Route>
-        <Route path="/share" component={Share}></Route>
-        <Route path="/edit" component={Edit}></Route>
-        <Route path="/logout" component={SignIn}></Route>
-        <Route path="/update/store/:id" component={UpdateStore}></Route>
+        <Switch>
+          <Route exact path="/" component={SignIn}></Route>
+          <Route path="/SignIn" component={SignIn}></Route>
+          <Route path="/SignUp" component={SignUp}></Route>
+          <Route path="/landing" component={Landing}></Route>
+          <Route path="/steps" component={Steps}></Route>
+          <Route path="/form" component={Form}></Route>
+          <Route path="/stores" component={Stores}></Route>
+          <Route path="/step1" component={Step1}></Route>
+          <Route path="/preview" component={Step2}></Route>
+          <Route path="/share" component={Share}></Route>
+          <Route path="/edit" component={Edit}></Route>
+          <Route path="/logout" component={SignIn}></Route>
+          <Route path="/update/store/:id" component={UpdateStore}></Route>
+        </Switch>
       </div>
     </BrowserRouter>
   );

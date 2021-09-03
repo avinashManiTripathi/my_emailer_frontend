@@ -21,6 +21,10 @@ const Form = (props) => {
   const datas = localStorage.getItem("user");
   console.log("datat dfd" + datas);
 
+  const redirectToStores = () => {
+    props.history.push("/stores");
+  };
+
   const dispatch = useDispatch();
 
   const handleStoreOnSubmit = (e) => {
@@ -40,6 +44,7 @@ const Form = (props) => {
           mobileNumber
         )
       );
+      props.history.push("/stores");
     }
     props.history.push("/form");
   };
@@ -143,7 +148,14 @@ const Form = (props) => {
             <button type="submit" className="outline-bgwhite-button">
               Confirm
             </button>
+            <button
+              onClick={redirectToStores}
+              className="outline-bgwhite-button"
+            >
+              See Stores
+            </button>
           </form>
+
           <div></div>
         </div>
       )}
