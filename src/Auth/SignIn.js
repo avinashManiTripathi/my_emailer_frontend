@@ -16,7 +16,7 @@ function SignIn(props) {
   };
 
   const redirectToSignUp = () => {
-    //props.history.push("/SignUp");
+    props.history.push("/SignUp");
   };
 
   const hash = localStorage.getItem("hash");
