@@ -10,19 +10,19 @@ function Landing(props) {
       <div className="container">
         <div className="row">
           <div className="col-md-6 content">
-            <div className=" mt-5 " style={{ float: "left" }}>
-              <div style={{ float: "left", alignItems: "start" }}>
+            <div className=" mt-5 float-left ">
+              <div className="rayfont_container_left">
                 <span className="rayfont_1"> YOU'RE</span>
                 <span className="rayfont_2">ON</span>
                 <span className="rayfont_3">AIR</span>{" "}
               </div>
-              <div style={{ float: "left" }}>
+              <div className="rayfont_container_left">
                 <p className="rayfont_p">
                   CREATE YOUR OWN{" "}
                   <span className="rayfont_p_span"> RAY-BAN </span>
                   EMAILER
                 </p>
-                <p className="rayfont_p" style={{ float: "left" }}>
+                <p className="rayfont_p rayfont_container_left">
                   IN JUST 3 EASY STEPS
                 </p>
               </div>
@@ -30,14 +30,13 @@ function Landing(props) {
             <div className="">
               <button
                 onClick={redirectToSteps}
-                className="raybtn raylandingbtn"
-                style={{ float: "left" }}
+                className="raylandingbtn rayfont_container_left"
               >
                 Get Started
               </button>
             </div>
           </div>
-          <div className="col-md-6 landing-img">
+          <div className="col-md-6 landing-img mt-5 ">
             <img
               src="https://myemailer123.herokuapp.com/images/Laptop+Mobile.png"
               alt=""

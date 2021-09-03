@@ -10,10 +10,11 @@ function Step1(props) {
     setImages(data);
     setShow(true);
   };
-  const closePopUp = () => setShow(false);
-  const redirectToStepTwo = () => {
-    props.history.push("/preview");
+  const redirectToEdit = () => {
+    props.history.push("/edit");
   };
+
+  const closePopUp = () => setShow(false);
 
   return (
     <div>
@@ -28,27 +29,10 @@ function Step1(props) {
             }}
           >
             <div
-              className="ReactModal__Content ReactModal__Content--after-open"
+              className="ReactModal__Content_ReactModal"
               tabindex="-1"
               role="dialog"
               aria-modal="true"
-              style={{
-                position: "absolute",
-                inset: "50% auto auto 50%",
-                border: "1px solid rgb(204, 204, 204)",
-                background: "white",
-                overflow: "auto",
-                borderRadius: "4px",
-                outline: "none",
-                padding: "20px",
-                width: "80%",
-                height: "100%",
-                transform: "translate(-50%, -50%)",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                marginTop: "20px",
-              }}
             >
               <text
                 onClick={closePopUp}
@@ -73,9 +57,10 @@ function Step1(props) {
                   alt=""
                 />
               </div>
-              <a href="/edit" style={{ textAlign: "center" }}>
-                <button className="sc-iCoGMd kMthTr">select</button>
-              </a>
+
+              <button onClick={redirectToEdit} className="sc-iCoGMd kMthTr">
+                select
+              </button>
             </div>
           </div>
         </div>
@@ -118,9 +103,7 @@ function Step1(props) {
               })}
             </div>
           </div>
-          <button onClick={redirectToStepTwo} className="red_outline_Button">
-            CLICK TO OPEN
-          </button>
+          <button className="red_outline_Button">CLICK TO OPEN</button>
         </div>
       )}
     </div>

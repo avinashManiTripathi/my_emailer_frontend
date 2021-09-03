@@ -474,15 +474,6 @@ h1 {
   color: #ff0d00 !important;
 }
 
-.raylandingbtn {
-  background-color: #ff0d00;
-  border: none;
-  color: #fff;
-  padding: 10px 0;
-  text-decoration: none;
-  font-size: 1.4vw;
-  font-family: Ray-BanSansVarGX;
-}
 .w-100 {
   width: 100% !important;
 }
@@ -722,6 +713,17 @@ textarea {
   border-radius: 4px;
 }
 
+.raylandingbtn {
+  background-color: #ff0d00;
+  border: none;
+  color: #fff;
+  font-size: 1.8vw;
+  padding: 10px 50px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-family: Ray-BanSansVarGX;
+}
+
 .text-center {
   text-align: center !important;
 }
@@ -770,7 +772,114 @@ textarea {
 }
 
 /* End Share */
+
+.rayfont_container_left {
+  float: left;
+}
+
+.store_action_button {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.ReactModal__Content_ReactModal {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  border: 1px solid rgb(204, 204, 204);
+  background: white;
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+  width: 80%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
 @media only screen and (max-width: 700px) {
+  .hbusih {
+    background-color: rgb(255, 13, 0);
+    border: none;
+    color: rgb(255, 255, 255);
+    width: 250px;
+    padding: 10px 0px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 5vw;
+    font-family: Ray-BanSansVarGX;
+    border-radius: 4px;
+  }
+
+  .rayfont_container_left {
+    float: unset;
+  }
+  .raylandingbtn {
+    background: red;
+    border: 1px solid red;
+    color: rgb(255, 255, 255);
+    padding: 8.5px 53px;
+    text-align: center;
+    font-size: 5vw;
+    border-radius: 4px;
+    font-weight: bold;
+    font-family: Ray-BanSansVarGX;
+  }
+
+  .store_action_button {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 12px;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  .ReactModal__Content_ReactModal {
+    width: 95%;
+  }
+  .red_outline_Button {
+    margin: 20px 0;
+    border: 1px solid red;
+    background: #ffffff;
+    color: rgb(34, 33, 33);
+    width: 250px;
+    padding: 10px 0px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 5vw;
+    font-family: Ray-BanSansVarGX;
+    border-radius: 4px;
+  }
+
   .editselect {
     font-size: 15px;
     padding: 10px 20px;
@@ -836,18 +945,7 @@ textarea {
     padding: 2.5rem;
     margin-bottom: -59px;
   }
-  .raylandingbtn {
-    background-color: #ff0d00;
-    border: none;
-    color: #fff;
-    width: 60%;
-    padding: 8px 0;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1.4rem;
-    font-family: Ray-BanSansVarGX;
-    margin-left: -1px;
-  }
+
   .raybtn,
   .raybtnn {
     text-align: center;

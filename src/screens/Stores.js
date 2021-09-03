@@ -53,13 +53,13 @@ function Stores(props) {
                       style={{ position: "absolute", right: 10, bottom: 10 }}
                     >
                       <button
-                        className="btn m-1"
+                        className="m-1 store_action_button"
                         style={{ background: "rgb(221, 221, 221)" }}
                       >
                         Edit
                       </button>
                       <button
-                        className="btn m-1 "
+                        className=" m-1  store_action_button"
                         onClick={() => handleStoreDelete(store._id)}
                         style={{ background: "rgb(221, 221, 221)" }}
                       >
