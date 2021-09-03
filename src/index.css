@@ -996,15 +996,15 @@ textarea {
   .previewimg {
     margin-bottom: 0px !important;
     font-family: "lato";
-    height: 30px;
+    height: 27px;
     background: #fff;
     border-radius: 10px;
     border: 1px solid red;
     width: 100px;
-    font-size: 15px;
+    font-size: 10px;
   }
   .select_class {
-    width: auto;
+    width: 250px;
     height: auto;
   }
 

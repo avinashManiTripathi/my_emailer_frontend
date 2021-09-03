@@ -85,11 +85,12 @@ const Edit = (props) => {
           <div className="col-md-8 mb-5">
             <div
               ref={ref}
-              className="img_container"
+              className="img_container m-3 "
               style={{ position: "relative" }}
               id="capture"
             >
               <img className="w-100 blankImage  " alt="dfsf" src={Stepdata} />
+
               <div className="prev-cropper_img">
                 <div className="col-md-5 text-center">
                   {file && (
