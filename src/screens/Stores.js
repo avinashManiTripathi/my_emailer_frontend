@@ -39,15 +39,22 @@ function Stores(props) {
             ? data.map((store) => {
                 return (
                   <div className="stores">
-                    <form className="stores_form">Store {count++}</form>
-                    <div className="stores_data">
-                      <p>{store.store_name}</p>
-                      <p></p>
-                      <p>{store.city}</p>
-                      <p>{store.pin_code}</p>
-                      <p>{store.email_address}</p>
-                      <p>{store.mobile_number}</p>
+                    <div className="row">
+                      <div className="col-md-3  col-sm-12">
+                        <form className="stores_form">Store {count++}</form>
+                      </div>
+                      <div className="col-md-9  col-sm-12">
+                        <div className="stores_data">
+                          <p>{store.store_name}</p>
+                          <p></p>
+                          <p>{store.city}</p>
+                          <p>{store.pin_code}</p>
+                          <p>{store.email_address}</p>
+                          <p>{store.mobile_number}</p>
+                        </div>
+                      </div>
                     </div>
+
                     <div
                       className="d-flex float-right"
                       style={{ position: "absolute", right: 10, bottom: 10 }}

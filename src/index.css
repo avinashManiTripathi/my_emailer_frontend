@@ -626,12 +626,12 @@ textarea {
   width: 120px;
 }
 .stores_data {
-  padding: 22px 0px 16px 206px;
+  padding: 22px 0px 16px 0px;
 }
 .stores_data p {
   font-size: 16px;
   text-align: left;
-  margin: 2px 0px;
+  margin: 2px 20px;
   color: rgb(183, 183, 183);
 }
 
@@ -1013,6 +1013,27 @@ textarea {
     background: #fff;
     width: 100px !important;
     font-size: 15px;
+  }
+
+  .stores_form {
+    position: absolute;
+    background: none;
+    top: 1%;
+    left: 0%;
+    padding: 10px;
+    font-family: Ray-BanSansVarGX;
+    font-size: 13px !important;
+    float: right;
+    width: 100%;
+  }
+  .stores_data {
+    padding: 22px 0px 16px 0px;
+  }
+  .stores_data p {
+    font-size: 12px;
+    text-align: left;
+    margin: 2px 20px;
+    color: rgb(183, 183, 183);
   }
 }
 
