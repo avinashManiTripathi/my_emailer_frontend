@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { AddStore } from "../Actions/storeAction";
 
 const Form = (props) => {
@@ -11,18 +12,13 @@ const Form = (props) => {
   const [emailAddress, setEmailAddress] = useState();
   const [mobileNumber, setMobileNumber] = useState();
 
+  const history = useHistory();
   const [validationError, setValidationError] = useState();
 
   const AddStores = useSelector((state) => state.addstore);
-  const { loading, error } = AddStores;
-
-  console.log(`loading == ${loading} error = ${error}`);
-
-  const datas = localStorage.getItem("user");
-  console.log("datat dfd" + datas);
-
+  const { loading } = AddStores;
   const redirectToStores = () => {
-    props.history.push("/stores");
+    history.push("/stores");
   };
 
   const dispatch = useDispatch();
@@ -44,9 +40,9 @@ const Form = (props) => {
           mobileNumber
         )
       );
-      props.history.push("/stores");
+      history.push("/stores");
     }
-    props.history.push("/form");
+    history.push("/stores");
   };
 
   const formValidation = () => {

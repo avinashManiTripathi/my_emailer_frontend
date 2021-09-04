@@ -451,6 +451,7 @@ h1 {
   font-family: Ray-BanSansInline-Bold100;
 }
 .rayfont_2 {
+  margin: 0px 10px;
   font-family: Ray-BanSansVarGX;
   color: #ff0d00;
 }
@@ -814,6 +815,174 @@ textarea {
   align-items: center;
   margin-top: 20px;
 }
+
+/* ------------------------------ Edit Start -------------------------------- */
+.img-hundo {
+  width: 100%;
+  box-shadow: 0 3px 24px -5px rgb(0 0 0 / 75%) !important;
+}
+
+.caption {
+  bottom: 6%;
+  right: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.select_caption {
+  bottom: 1%;
+  right: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.select_field {
+  position: absolute !important;
+  bottom: 0;
+  top: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 100%;
+  width: 400px;
+  height: 40px;
+  border-radius: 5px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* -------------------------------- End Edit  -------------------------------- */
+
+@media only screen and (max-width: 900px) {
+  .cropperImage {
+    margin-top: -120px;
+    margin-bottom: 10px;
+    width: 140px;
+    height: 80px;
+  }
+
+  .previewimg {
+    font-family: "lato";
+    height: 60px;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid red;
+    width: 120px !important;
+    font-size: 10px !important;
+    text-align: center !important;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .cropperImage {
+    margin-top: -120px;
+    margin-bottom: 10px;
+    width: 140px;
+    height: 80px;
+  }
+
+  .previewimg {
+    font-family: "lato";
+    height: 60px;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid red;
+    width: 120px !important;
+    font-size: 10px !important;
+    text-align: center !important;
+  }
+
+  /* ------------------------------ Edit Start -------------------------------- */
+  .img-hundo {
+    width: 100%;
+    box-shadow: 0 3px 24px -5px rgb(0 0 0 / 75%) !important;
+  }
+  .caption {
+    bottom: 6%;
+    right: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .caption .previewimg {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    left: 50%;
+    transform: "translate(-50%, -50%)";
+  }
+
+  .select_caption {
+    bottom: 1%;
+    right: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .select_caption .select_field {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 200px;
+    height: 23px;
+    border-radius: 5px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 0.75rem;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 0.8;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  /* -------------------------------- End Edit  -------------------------------- */
+}
+
+@media only screen and (max-width: 800px) {
+  .cropperImage {
+    margin-top: -120px;
+    margin-bottom: 10px;
+    width: 130px;
+    height: 75px;
+  }
+  .pretxt {
+    font-family: "Ray-BanSansVarGX";
+    font-size: 14px;
+    max-width: 400px;
+    word-wrap: break-word;
+  }
+  .previewimg {
+    font-family: "lato";
+    height: 60px;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid red;
+    width: 120px !important;
+    font-size: 10px !important;
+    text-align: center !important;
+  }
+}
+
 @media only screen and (max-width: 700px) {
   .hbusih {
     background-color: rgb(255, 13, 0);
@@ -930,8 +1099,8 @@ textarea {
   }
   .cropperImage {
     margin-top: -110px;
-    width: 80px;
-    height: 40px;
+    width: 90px;
+    height: 45px;
   }
 
   .editselect,
@@ -994,11 +1163,10 @@ textarea {
   }
 
   .previewimg {
-    margin-bottom: 0px !important;
     font-family: "lato";
-    height: 30px;
+    height: 45px;
     background: #fff;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid red;
     width: 120px !important;
     font-size: 10px !important;
@@ -1035,6 +1203,174 @@ textarea {
     text-align: left;
     margin: 2px 20px;
     color: rgb(183, 183, 183);
+  }
+
+  /* ------------------------------ Edit Start -------------------------------- */
+  .img-hundo {
+    width: 100%;
+    box-shadow: 0 3px 24px -5px rgb(0 0 0 / 75%) !important;
+  }
+  .caption {
+    bottom: 6%;
+    right: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .caption .previewimg {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    left: 50%;
+    transform: "translate(-50%, -50%)";
+  }
+
+  .select_caption {
+    bottom: 1%;
+    right: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .select_caption .select_field {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 200px;
+    height: 23px;
+    border-radius: 5px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 0.75rem;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 0.8;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  /* -------------------------------- End Edit  -------------------------------- */
+}
+
+@media only screen and (max-width: 600px) {
+  .cropperImage {
+    margin-top: -120px;
+    margin-bottom: 10px;
+    width: 130px;
+    height: 67px;
+  }
+  .pretxt {
+    font-family: "Ray-BanSansVarGX";
+    font-size: 14px;
+    max-width: 400px;
+    word-wrap: break-word;
+  }
+
+  .caption .previewimg {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    left: 50%;
+    transform: "translate(-50%, -50%)";
+  }
+
+  .previewimg {
+    font-family: "lato";
+    height: 52px;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid red;
+    width: 120px !important;
+    font-size: 10px !important;
+    text-align: center !important;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .cropperImage {
+    margin-top: -120px;
+    margin-bottom: 10px;
+    width: 100px;
+    height: 50px;
+  }
+  .pretxt {
+    font-family: "Ray-BanSansVarGX";
+    font-size: 10px;
+    max-width: 400px;
+    word-wrap: break-word;
+  }
+
+  .previewimg {
+    font-family: "lato";
+    height: 60px;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid red;
+    width: 120px !important;
+    font-size: 10px !important;
+    text-align: center !important;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .cropperImage {
+    margin-top: -120px;
+    margin-bottom: 10px;
+    width: 95px;
+    height: 48px;
+  }
+  .pretxt {
+    font-family: "Ray-BanSansVarGX";
+    font-size: 10px;
+    max-width: 400px;
+    word-wrap: break-word;
+  }
+
+  .previewimg {
+    font-family: "lato";
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid red;
+    font-size: 10px;
+    text-align: center;
+    width: 95px;
+    height: 48px;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .cropperImage {
+    margin-top: -120px;
+    margin-bottom: 10px;
+    width: 84px;
+    height: 42px;
+  }
+  .pretxt {
+    font-family: "Ray-BanSansVarGX";
+    font-size: 10px;
+    max-width: 400px;
+    word-wrap: break-word;
+  }
+
+  .previewimg {
+    font-family: "lato";
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid red;
+    width: 80px;
+    height: 42px;
+    font-size: 10px !important;
+    text-align: center !important;
   }
 }
 

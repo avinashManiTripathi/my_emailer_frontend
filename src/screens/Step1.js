@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Photos } from "../components/Photos";
 function Step1(props) {
   const [show, setShow] = useState(false);
@@ -58,9 +59,9 @@ function Step1(props) {
                 />
               </div>
 
-              <button onClick={redirectToEdit} className="sc-iCoGMd kMthTr">
+              <Link to="/edit" className="sc-iCoGMd kMthTr">
                 select
-              </button>
+              </Link>
             </div>
           </div>
         </div>

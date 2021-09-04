@@ -13,6 +13,7 @@ import Edit from "./screens/Edit";
 import SignIn from "./Auth/SignIn";
 import SignUp from "./Auth/SignUp";
 import UpdateStore from "./screens/updateStore";
+import Protected from "./Protected/Protected";
 
 function App() {
   return (
@@ -23,16 +24,36 @@ function App() {
           <Route exact path="/" component={SignIn}></Route>
           <Route path="/SignIn" component={SignIn}></Route>
           <Route path="/SignUp" component={SignUp}></Route>
-          <Route path="/landing" component={Landing}></Route>
-          <Route path="/steps" component={Steps}></Route>
-          <Route path="/form" component={Form}></Route>
-          <Route path="/stores" component={Stores}></Route>
-          <Route path="/step1" component={Step1}></Route>
-          <Route path="/preview" component={Step2}></Route>
-          <Route path="/share" component={Share}></Route>
-          <Route path="/edit" component={Edit}></Route>
-          <Route path="/logout" component={SignIn}></Route>
-          <Route path="/update/store/:id" component={UpdateStore}></Route>
+          <Route path="/landing">
+            <Protected Cmp={Landing}></Protected>
+          </Route>
+          <Route path="/steps">
+            <Protected Cmp={Steps}></Protected>
+          </Route>
+          {/* <Route path="/form">
+            <Protected Cmp={Form}></Protected>
+          </Route> */}
+          <Route path="/stores">
+            <Protected Cmp={Stores}></Protected>
+          </Route>
+          <Route path="/step1">
+            <Protected Cmp={Step1}></Protected>
+          </Route>
+          <Route path="/preview">
+            <Protected Cmp={Step2}></Protected>
+          </Route>
+          <Route path="/share">
+            <Protected Cmp={Share}></Protected>
+          </Route>
+          <Route path="/edit">
+            <Protected Cmp={Edit}></Protected>
+          </Route>
+          <Route path="/logout">
+            <Protected Cmp={SignIn}></Protected>
+          </Route>
+          <Route path="/update/store/:id">
+            <Protected Cmp={UpdateStore}></Protected>
+          </Route>
         </Switch>
       </div>
     </BrowserRouter>

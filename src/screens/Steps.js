@@ -1,10 +1,12 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
-function Steps(props) {
+const Steps = (props) => {
+  const history = useHistory();
+
   const redirectToForm = () => {
-    props.history.push("/form");
+    history.push("/stores");
   };
-
   return (
     <div>
       <div className="container mt-5">
@@ -52,6 +54,6 @@ function Steps(props) {
       </div>
     </div>
   );
-}
+};
 
 export default Steps;

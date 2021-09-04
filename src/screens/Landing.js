@@ -1,8 +1,11 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
-function Landing(props) {
+const Landing = (props) => {
+  const history = useHistory();
+
   const redirectToSteps = () => {
-    props.history.push("/steps");
+    history.push("/steps");
   };
 
   return (
@@ -44,6 +47,6 @@ function Landing(props) {
       </div>
     </div>
   );
-}
+};
 
 export default Landing;

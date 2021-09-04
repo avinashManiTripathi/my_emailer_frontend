@@ -2,11 +2,13 @@ import React, { useRef, useState, useEffect } from "react";
 import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { findAllStores } from "../Actions/storeAction";
 
 const Edit = (props) => {
   const ref = useRef(null);
 
+  const history = useHistory();
   const FindStores = useSelector((state) => state.findStoreReducer);
   const { data } = FindStores;
   const [file, selectFile] = useState(null);
@@ -32,7 +34,7 @@ const Edit = (props) => {
     setSelectedValue(selectedValues);
   };
   const handlePreviewButton = () => {
-    props.history.push("/preview");
+    history.push("/preview");
   };
 
   const Stepdata = localStorage.getItem("step1");
@@ -76,22 +78,17 @@ const Edit = (props) => {
           <text className="step_red_button">STEP 2</text>
         </div>
         <h1>UPLOAD YOUR DETAILS</h1>
-
         <br />
-
-        <div className="row">
-          <div className="col-md-2"></div>
-
-          <div className="col-md-8 mb-5">
-            <div
-              ref={ref}
-              className="img_container m-3 "
-              style={{ position: "relative" }}
-              id="capture"
-            >
-              <img className="w-100 blankImage  " alt="dfsf" src={Stepdata} />
-
-              <div className="prev-cropper_img">
+        <div className="container ">
+          <div className="row">
+            <div className="col-md-2"></div>
+            <div className="col-md-8">
+              <div ref={ref} class="position-relative bg-secondary">
+                <img
+                  src={Stepdata}
+                  alt="test"
+                  class="img-responsive img-hundo"
+                />
                 <div className="col-md-5 text-center">
                   {file && (
                     <div
@@ -160,10 +157,10 @@ const Edit = (props) => {
                     </div>
                   )}
                 </div>
-                <div className="main_cropperImage">
+                <div class="position-absolute caption">
                   <label
                     for="imghaver"
-                    className="cropperImage previewimg"
+                    className="cropperImage previewimg  "
                     style={{
                       position: "absolute",
                       bottom: "0",
@@ -174,7 +171,11 @@ const Edit = (props) => {
                       transform: "translate(-50%, -50%)",
                     }}
                   >
-                    {result ? null : "Click to Upload Logo"}
+                    {result ? null : (
+                      <span style={{ fontWeight: "bold", margin: "10px" }}>
+                        Click to Upload Logo
+                      </span>
+                    )}
                     <input
                       type="file"
                       id="imghaver"
@@ -184,57 +185,54 @@ const Edit = (props) => {
                     ></input>
                     {result && (
                       <img
-                        style={{ position: "absolute" }}
-                        className="previewimg_onload"
+                        className=""
+                        style={{
+                          position: "absolute",
+                          top: "-2%",
+                          left: "-1%",
+                          margin: "0px",
+                          width: "113%",
+                          height: "110%",
+                          padding: "0px",
+                        }}
                         src={result}
                         alt="sdsf"
                       ></img>
                     )}
                   </label>
                 </div>
-                <div
-                  className="d-flex jcc bod"
-                  style={{
-                    position: "absolute",
-                    bottom: "0",
-                    left: "0",
-                    right: "0",
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                  }}
-                >
-                  <div className="m-1">
-                    <select
-                      onChange={(e) => handleSelectedStore(e.target.value)}
-                      className="select_class "
-                      name="selected"
-                    >
-                      <option value="0">---Select Store----</option>
-                      {data &&
-                        data.map((store) => (
-                          <option value={store._id}>{store.store_name}</option>
-                        ))}
-                    </select>
-                  </div>
-                </div>{" "}
-              </div>
-            </div>
 
-            {selectedValue && (
-              <div className="container mt-2">
-                <div className="row justify-content-center align-items-center">
-                  <div className="col-md-3 text-center bod">
-                    <button
-                      onClick={handlePreviewButton}
-                      style={{ textAlign: "center" }}
-                      className="sc-fIxmyt cnkbFD"
-                    >
-                      Preview
-                    </button>
-                  </div>
+                <div class="position-absolute select_caption">
+                  <select
+                    onChange={(e) => handleSelectedStore(e.target.value)}
+                    className="select_field "
+                    name="selected"
+                  >
+                    <option value="0">---Select Store----</option>
+                    {data &&
+                      data.map((store) => (
+                        <option value={store._id}>{store.store_name}</option>
+                      ))}
+                  </select>
                 </div>
               </div>
-            )}
+              {selectedValue && (
+                <div className="container mt-2">
+                  <div className="row justify-content-center align-items-center">
+                    <div className="col-md-3 text-center bod">
+                      <button
+                        onClick={handlePreviewButton}
+                        style={{ textAlign: "center" }}
+                        className="sc-fIxmyt cnkbFD"
+                      >
+                        Preview
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className="col-md-2"></div>
           </div>
         </div>
       </div>
