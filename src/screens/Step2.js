@@ -4,7 +4,7 @@ import { toJpeg } from "html-to-image";
 import authHeader from "../Helper/auth-header";
 import { useDispatch, useSelector } from "react-redux";
 import { FindStoreByIdAction } from "../Actions/storeAction";
-import { auto } from "@popperjs/core";
+import { useHistory } from "react-router-dom";
 
 function Step2(props) {
   const dispatch = useDispatch();
@@ -15,6 +15,7 @@ function Step2(props) {
   const blankImage = localStorage.getItem("blankImage");
   const cropperImage = localStorage.getItem("cropperImage");
   const [uploadStatus, setUploadStatus] = useState(false);
+  const history = useHistory();
   const onButtonClick = useCallback(() => {
     setUploadStatus(true);
     if (ref.current === null) {
@@ -38,7 +39,7 @@ function Step2(props) {
           .then((response) => {
             console.log("response" + response);
             setUploadStatus(false);
-            props.history.push("/share");
+            history.push("/share");
           })
           .catch((error) => {
             console.log(error);
@@ -81,8 +82,8 @@ function Step2(props) {
                       position: "absolute",
                       bottom: "0",
                       top: "0",
-                      marginTop: auto,
-                      marginBottom: auto,
+                      marginTop: "auto",
+                      marginBottom: "auto",
                       left: "50%",
                       transform: " translate(-50%, -50%)",
                     }}
@@ -97,8 +98,8 @@ function Step2(props) {
                     bottom: "0",
                     left: "0",
                     right: "0",
-                    marginLeft: auto,
-                    marginRight: auto,
+                    marginLeft: "auto",
+                    marginRight: "auto",
                   }}
                 >
                   <div className="m-1 bod">
