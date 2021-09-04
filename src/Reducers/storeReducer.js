@@ -64,11 +64,11 @@ export const FindAllStoreReducers = (state = { data: [] }, action) => {
 export const SendImageToEmailReducers = (state = {}, action) => {
   switch (action.type) {
     case SEND_IMAGETOEMAIL_REQUEST:
-      return { loading: true };
+      return { EmailSuccess: false };
     case SEND_IMAGETOEMAIL_SUCCESS:
-      return { loading: false, data: action.payload };
+      return { EmailSuccess: true, data: action.payload };
     case SEND_IMAGETOEMAIL_FAIL:
-      return { loading: true, error: action.payload };
+      return { EmailSuccess: false, error: action.payload };
     default:
       return state;
   }
@@ -77,11 +77,11 @@ export const SendImageToEmailReducers = (state = {}, action) => {
 export const SendImageToWhatsAppReducers = (state = {}, action) => {
   switch (action.type) {
     case SEND_IMAGETOWHATSAPP_REQUEST:
-      return { loading: true };
+      return { WhatsAppSuccess: false };
     case SEND_IMAGETOWHATSAPP_SUCCESS:
-      return { loading: false, data: action.payload };
+      return { WhatsAppSuccess: true, data: action.payload };
     case SEND_IMAGETOWHATSAPP_FAIL:
-      return { loading: true, error: action.payload };
+      return { WhatsAppSuccess: false, error: action.payload };
     default:
       return state;
   }

@@ -27,11 +27,8 @@ function Landing(props) {
                 </p>
               </div>
             </div>
-            <div className="">
-              <button
-                onClick={redirectToSteps}
-                className="raylandingbtn rayfont_container_left"
-              >
+            <div className="rayfont_container_left">
+              <button onClick={redirectToSteps} className="raylandingbtn ">
                 Get Started
               </button>
             </div>

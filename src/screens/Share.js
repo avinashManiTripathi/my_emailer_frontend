@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   SendStoreImageToEmail,
   SendStoreImageToWhatsApp,
@@ -8,6 +8,18 @@ import { findUserId } from "../Helper/auth-header";
 
 const Share = (props) => {
   const dispatch = useDispatch();
+
+  const whatsApppStatus = useSelector(
+    (state) => state.sendImageToWhatsAppReducers
+  );
+  const emailStatus = useSelector((state) => state.sendImageToEmailReducers);
+
+  const { WhatsAppSuccess } = whatsApppStatus;
+  const { EmailSuccess } = emailStatus;
+
+  console.log(`whatsApppStatus` + WhatsAppSuccess);
+  console.log(`Emailloading` + EmailSuccess);
+
   const onClickSendEmail = () => {
     dispatch(SendStoreImageToEmail(findUserId()));
   };
@@ -72,6 +84,16 @@ const Share = (props) => {
             <h1 style={{ fontSize: "24px", fontWeight: "normal" }}>
               SHARE VIA
             </h1>
+            {WhatsAppSuccess && (
+              <div class="alert alert-success" role="alert">
+                Please check your WhatsApp Message sent Successfully
+              </div>
+            )}
+            {EmailSuccess && (
+              <div class="alert alert-success" role="alert">
+                Please check your EmailSuccess Message sent Successfully
+              </div>
+            )}
             <div className="row jcc">
               <div className="col-md-6">
                 <div className="row jcc aic">
