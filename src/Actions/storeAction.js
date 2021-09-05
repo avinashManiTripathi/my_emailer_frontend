@@ -22,6 +22,9 @@ import {
   UPDATE_STOREBYID_SUCCESS,
 } from "../Constants/StoreConstants";
 import authHeader from "../Helper/auth-header";
+import { toast } from "react-toastify";
+
+toast.configure();
 
 export const AddStore =
   (
@@ -53,11 +56,13 @@ export const AddStore =
           headers: authHeader(),
         }
       );
+      toast.success("Store Added Successfully");
       dispatch({
         type: STORE_SUCCESS,
         payload: data,
       });
     } catch (error) {
+      toast.warn("Failed Try Again");
       dispatch({
         type: STORE_FAIL,
         payload: error,
@@ -88,23 +93,25 @@ export const FindStoreByIdAction = (id) => async (dispatch) => {
   }
 };
 
-export const SendStoreImageToEmail = (id) => async (dispatch) => {
+export const SendStoreImageToEmail = (email) => async (dispatch) => {
   dispatch({
     type: SEND_IMAGETOEMAIL_REQUEST,
   });
   try {
-    const { data } = await Axios.get(
-      `https://myemailer123.herokuapp.com/api/store/email/${id}`,
+    const { data } = await Axios.post(
+      `https://myemailer123.herokuapp.com/api/store/email`,
+      { email },
       {
         headers: authHeader(),
       }
     );
-
+    toast.success("Success Please Check Your Inbox");
     dispatch({
       type: SEND_IMAGETOEMAIL_SUCCESS,
       payload: data,
     });
   } catch (error) {
+    toast.warn("failed");
     dispatch({
       type: SEND_IMAGETOEMAIL_FAIL,
       payload: error,
@@ -112,22 +119,33 @@ export const SendStoreImageToEmail = (id) => async (dispatch) => {
   }
 };
 
-export const SendStoreImageToWhatsApp = (id) => async (dispatch) => {
+export const SendStoreImageToWhatsApp = (phone) => async (dispatch) => {
   dispatch({
     type: SEND_IMAGETOWHATSAPP_REQUEST,
   });
   try {
-    const { data } = await Axios.get(
-      `https://myemailer123.herokuapp.com/api/store/whatsapp/${id}`,
+    const { data } = await Axios.post(
+      `http://myemailer123.herokuapp.com/api/store/whatsapp`,
+      { phone },
       {
         headers: authHeader(),
       }
     );
+    toast.promise(new Promise((resolve) => setTimeout(resolve, 3000)), {
+      pending: "Sending message  ",
+      success: " Success👌",
+      error: "Failed 🤯",
+    });
+
     dispatch({
       type: SEND_IMAGETOWHATSAPP_SUCCESS,
       payload: data,
     });
   } catch (error) {
+    toast.promise(new Promise((resolve) => setTimeout(resolve, 3000)), {
+      error: "Failed 🤯",
+    });
+
     dispatch({
       type: SEND_IMAGETOWHATSAPP_FAIL,
       payload: error,
@@ -163,18 +181,19 @@ export const DeleteStoreByIdAction = (id) => async (dispatch) => {
     type: DELETE_STORE_REQUEST,
   });
   try {
-    const { data } = await Axios.get(
+    await Axios.get(
       `https://myemailer123.herokuapp.com/api/store/delete/${id}`,
       {
         headers: authHeader(),
       }
-    ).then(
+    ).then((response) => {
+      toast.success("Deleted Successfully");
       dispatch({
         type: DELETE_STORE_SUCCESS,
-        payload: data,
-      })
-    );
+      });
+    });
   } catch (error) {
+    toast.warn("Failed Try again ");
     dispatch({
       type: DELETE_STORE_FAIL,
       payload: error,
@@ -182,43 +201,37 @@ export const DeleteStoreByIdAction = (id) => async (dispatch) => {
   }
 };
 
-export const UpdateStoreByIdAction =
-  ({
-    id,
-    store_name,
-    store_address,
-    city,
-    state,
-    pin_code,
-    email_address,
-    mobile_number,
-  }) =>
-  async (dispatch) => {
+export const UpdateStoreByIdAction = (store, history) => async (dispatch) => {
+  dispatch({
+    type: UPDATE_STOREBYID_REQUEST,
+  });
+  try {
+    const { data } = await Axios.post(
+      `https://myemailer123.herokuapp.com/api/store/update/${store._id}`,
+      {
+        store_name: store.store_name,
+        store_address: store.store_address,
+        city: store.city,
+        state: store.state,
+        pin_code: store.pin_code,
+        email_address: store.email_address,
+        mobile_number: store.mobile_number,
+      },
+      {
+        headers: authHeader(),
+      }
+    );
+    toast.success("Updated Successfully");
     dispatch({
-      type: UPDATE_STOREBYID_REQUEST,
+      type: UPDATE_STOREBYID_SUCCESS,
+      payload: data,
     });
-    try {
-      const { data } = Axios.post(
-        `https://myemailer123.herokuapp.com/api/store/update/${id}`,
-        {
-          store_name,
-          store_address,
-          city,
-          state,
-          pin_code,
-          email_address,
-          mobile_number,
-        }
-      );
-
-      dispatch({
-        type: UPDATE_STOREBYID_SUCCESS,
-        payload: data,
-      });
-    } catch (error) {
-      dispatch({
-        type: UPDATE_STOREBYID_FAIL,
-        payload: error,
-      });
-    }
-  };
+    history.push("/stores");
+  } catch (error) {
+    toast.warn("Update Failed");
+    dispatch({
+      type: UPDATE_STOREBYID_FAIL,
+      payload: error,
+    });
+  }
+};

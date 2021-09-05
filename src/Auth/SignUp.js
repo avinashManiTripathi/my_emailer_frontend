@@ -1,11 +1,9 @@
-import Axios from "axios";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   SendOTPAction,
   VerifyAndRegistrationAction,
 } from "../Actions/registrationAction";
-
 function SignUp(props) {
   const [phone, setPhone] = useState();
   const [otac, setOTAC] = useState();
@@ -23,15 +21,12 @@ function SignUp(props) {
   const [dcError, setDCError] = useState();
   const [otpError, setOTPError] = useState();
 
-  console.log("success " + success);
   const redirectToSignIn = () => {
     props.history.push("/signin");
   };
   const handleSendOTP = (e) => {
     e.preventDefault();
-    console.log("Phoneot" + phone);
     dispatch(SendOTPAction(phone));
-    alert(phone);
   };
   const handleOnSub = (e) => {
     const hash = localStorage.getItem("hash");
@@ -153,6 +148,10 @@ function SignUp(props) {
                 <input
                   placeholder="Mobile Number"
                   type="text"
+                  pattern="[0-9]{10}"
+                  size="10"
+                  minlength="10"
+                  maxlength="10"
                   className="input_field"
                   onChange={(e) => setPhone(e.target.value)}
                 />
@@ -167,6 +166,9 @@ function SignUp(props) {
                   type="text"
                   placeholder="Click to receive OTP"
                   className="input_field_otp"
+                  pattern="[0-9]{6}"
+                  minlength="6"
+                  maxlength="6"
                   onChange={(e) => setOTP(e.target.value)}
                   disabled={success ? false : false}
                 />
@@ -183,7 +185,7 @@ function SignUp(props) {
                   })}
               </div>
               <p className="paragraph">
-                By clicking "Register" <br /> you accept our
+                By clicking "Sign Up" <br /> you accept our
                 <div
                   href="#"
                   style={{

@@ -1,11 +1,15 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 
 function Navbar(props) {
   const user = JSON.parse(localStorage.getItem("user"));
-
+  const history = useHistory();
   const location = useLocation();
-  console.log(location.pathname);
+
+  const handleLogoutClick = () => {
+    localStorage.clear();
+    history.push("/signin");
+  };
 
   return (
     <div>
@@ -17,17 +21,30 @@ function Navbar(props) {
         />
         {user ? (
           <>
-            <div className="sc-Arkif link">My Account</div>
+            <div
+              type="button"
+              class="sc-Arkif link  "
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              My Account <span className="dropdown-toggle "></span>
+            </div>
+            <div class="dropdown-menu dropdown-menu-right">
+              <Link class="dropdown-item" onClick={handleLogoutClick}>
+                Logout
+              </Link>
+            </div>
           </>
         ) : location.pathname === "/SignUp" ||
           location.pathname === "/signUp" ||
           location.pathname === "/signup" ? (
           <Link to="/SignIn" className=" link">
-            Login In
+            Sign In
           </Link>
         ) : (
           <Link to="/SignUp" className="link">
-            Register{" "}
+            Sign Up{" "}
           </Link>
         )}
       </div>

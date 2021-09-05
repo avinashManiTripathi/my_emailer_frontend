@@ -7,7 +7,9 @@ import {
   USER_LOGIN_SEND_OTP_SUCCESS,
   USER_LOGIN_SUCCESS,
 } from "../Constants/LoginConstants";
+import { toast } from "react-toastify";
 
+toast.configure();
 export const LoginAction = (phone, otp, hash, history) => async (dispatch) => {
   dispatch({
     type: USER_LOGIN_REQUEST,
@@ -26,7 +28,7 @@ export const LoginAction = (phone, otp, hash, history) => async (dispatch) => {
       history.push("/landing");
     });
   } catch (error) {
-    alert("Hey" + error);
+    toast.warn("Something Went Wrong Please Try Again");
     dispatch({
       type: USER_LOGIN_FAIL,
       payload: error,
@@ -46,12 +48,14 @@ export const LoginSendOTPAction = (phone) => async (dispatch) => {
       }
     ).then((response) => {
       localStorage.setItem("hash", response.data.hash);
+      toast.success("OTP has been sent Please check");
     });
     dispatch({
       type: USER_LOGIN_SEND_OTP_SUCCESS,
       payload: data,
     });
   } catch (error) {
+    toast.warn(error.response.data.message);
     dispatch({
       type: USER_LOGIN_SEND_OTP_FAIL,
       payload:

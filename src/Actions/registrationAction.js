@@ -8,27 +8,35 @@ import {
   USER_REGISTRATION_SUCCESS,
 } from "../Constants/RegistrationConstants";
 
+import { toast } from "react-toastify";
+toast.configure();
 export const SendOTPAction = (phone) => async (dispatch) => {
   dispatch({
     type: SEND_OTP_REQUEST,
   });
   try {
-    const { data } = await Axios.post(
-      "https://myemailer123.herokuapp.com/sendOTP",
-      {
-        phone,
-      }
-    ).then((response) => {
+    await Axios.post("https://myemailer123.herokuapp.com/sendOTP", {
+      phone,
+    }).then((response) => {
       localStorage.setItem("hash", response.data.hash);
+      dispatch({
+        type: SEND_OTP_SUCCESS,
+        payload: response.data,
+      });
     });
-    dispatch({
-      type: SEND_OTP_SUCCESS,
-      payload: data,
-    });
+    toast.success("OTP has been sent Please check");
   } catch (error) {
+    toast.warn(
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
+    );
     dispatch({
       type: SEND_OTP_FAIL,
-      payload: error,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
     });
   }
 };
@@ -51,7 +59,6 @@ export const VerifyAndRegistrationAction =
           hash,
         }
       );
-      console.log("send verify" + localStorage.getItem("hash"));
       dispatch({
         type: USER_REGISTRATION_SUCCESS,
         payload: data,

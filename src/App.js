@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Landing from "./screens/Landing";
 import Steps from "./screens/Steps";
-import Form from "./screens/Form";
 import Stores from "./screens/Stores";
 import Step1 from "./screens/Step1";
 import Step2 from "./screens/Step2";
@@ -14,6 +13,8 @@ import SignIn from "./Auth/SignIn";
 import SignUp from "./Auth/SignUp";
 import UpdateStore from "./screens/updateStore";
 import Protected from "./Protected/Protected";
+
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (

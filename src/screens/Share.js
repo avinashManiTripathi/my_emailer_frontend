@@ -1,32 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   SendStoreImageToEmail,
   SendStoreImageToWhatsApp,
 } from "../Actions/storeAction";
 import { findUserId } from "../Helper/auth-header";
+import { toast } from "react-toastify";
 
+toast.configure();
 const Share = (props) => {
   const dispatch = useDispatch();
 
-  const whatsApppStatus = useSelector(
-    (state) => state.sendImageToWhatsAppReducers
-  );
-  const emailStatus = useSelector((state) => state.sendImageToEmailReducers);
+  useSelector((state) => state.sendImageToWhatsAppReducers);
+  useSelector((state) => state.sendImageToEmailReducers);
 
-  const { WhatsAppSuccess } = whatsApppStatus;
-  const { EmailSuccess } = emailStatus;
+  const [whatsappInput, setWhatsInput] = useState("");
+  const [emailInput, setEmailInput] = useState("");
 
-  console.log(`whatsApppStatus` + WhatsAppSuccess);
-  console.log(`Emailloading` + EmailSuccess);
-
-  const onClickSendEmail = () => {
-    dispatch(SendStoreImageToEmail(findUserId()));
+  const onClickSendEmail = (e) => {
+    e.preventDefault();
+    if (
+      emailInput != null &&
+      emailInput.includes("@") &&
+      emailInput.includes(".") &&
+      emailInput.trim().length > 5
+    ) {
+      dispatch(SendStoreImageToEmail(emailInput));
+    } else {
+      toast.error("please enter valid email");
+    }
   };
-  const onClickSendWhatsApp = () => {
-    dispatch(SendStoreImageToWhatsApp(findUserId()));
-  };
 
+  const onClickSendWhatsApp = (e) => {
+    e.preventDefault();
+    var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    if (whatsappInput.match(phoneno) && whatsappInput.trim().length === 10) {
+      dispatch(SendStoreImageToWhatsApp(whatsappInput));
+    } else {
+      toast.error("please enter valid number");
+    }
+  };
   const onClickDownload = () => {
     fetch(`https://myemailer123.herokuapp.com/images/${findUserId()}.jpeg`, {
       method: "GET",
@@ -84,16 +97,6 @@ const Share = (props) => {
             <h1 style={{ fontSize: "24px", fontWeight: "normal" }}>
               SHARE VIA
             </h1>
-            {WhatsAppSuccess && (
-              <div class="alert alert-success" role="alert">
-                Please check your WhatsApp Message sent Successfully
-              </div>
-            )}
-            {EmailSuccess && (
-              <div class="alert alert-success" role="alert">
-                Please check your EmailSuccess Message sent Successfully
-              </div>
-            )}
             <div className="row jcc">
               <div className="col-md-6">
                 <div className="row jcc aic">
@@ -112,7 +115,8 @@ const Share = (props) => {
                         style={{ width: "75px", marginLeft: "40px" }}
                       />
                       <button
-                        onClick={onClickSendWhatsApp}
+                        data-toggle="modal"
+                        data-target="#whatsapp_modal"
                         className="share_link"
                         style={{ fontSize: "18px", marginLeft: "40px" }}
                       >
@@ -135,7 +139,8 @@ const Share = (props) => {
                         alt="zff"
                       />
                       <button
-                        onClick={onClickSendEmail}
+                        data-toggle="modal"
+                        data-target="#email_modal"
                         className="share_link"
                         style={{ fontSize: "18px", marginRight: "40px" }}
                       >
@@ -164,6 +169,107 @@ const Share = (props) => {
           </div>
         </div>
       </div>
+
+      <div
+        class="modal fade"
+        id="whatsapp_modal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">
+                WhatsApp
+              </h5>
+            </div>
+
+            <form onSubmit={onClickSendWhatsApp}>
+              <div class="modal-body">
+                <div class="col-auto">
+                  <label class="sr-only" for="inlineFormInputGroup">
+                    Username
+                  </label>
+                  <div class="input-group mb-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      onChange={(e) => setWhatsInput(e.target.value)}
+                      placeholder="Enter WhatsApp Number"
+                    />
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">WhatsApp</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="submit" class="btn btn-primary">
+                  Send
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="email_modal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">
+                Email
+              </h5>
+            </div>
+            <form onSubmit={onClickSendEmail}>
+              <div class="modal-body">
+                <div class="col-auto">
+                  <div class="input-group mb-2">
+                    <input
+                      type="email"
+                      class="form-control"
+                      onChange={(e) => setEmailInput(e.target.value)}
+                      placeholder="Enter Valid Email Address"
+                    />
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">Email</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="submit" class="btn btn-primary">
+                  Send
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
       <div className="spacer"></div>
     </div>
   );

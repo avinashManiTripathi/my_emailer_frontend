@@ -37,7 +37,6 @@ function Step2(props) {
           }
         )
           .then((response) => {
-            console.log("response" + response);
             setUploadStatus(false);
             history.push("/share");
           })
@@ -47,7 +46,7 @@ function Step2(props) {
       })
 
       .catch((error) => {
-        console.log("error" + error);
+        console.log(error);
       });
   }, [ref]);
 

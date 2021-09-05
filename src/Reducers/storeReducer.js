@@ -40,7 +40,7 @@ export const UpdateStoreReducers = (state = {}, action) => {
     case UPDATE_STOREBYID_REQUEST:
       return { loading: true };
     case UPDATE_STOREBYID_SUCCESS:
-      return { loading: false, store: action.payload };
+      return { ...state, loading: false, store: action.payload };
     case UPDATE_STOREBYID_FAIL:
       return { loading: false, error: action.payload };
     default:
@@ -92,7 +92,7 @@ export const FindStoreByIdReducer = (state = { stores: [] }, action) => {
     case FIND_STOREBYID_REQUEST:
       return state;
     case FIND_STOREBYID_SUCCESS:
-      return { stores: action.payload };
+      return { ...state, stores: action.payload };
     case FIND_STOREBYID_FAIL:
       return { error: action.error };
     default:
@@ -103,11 +103,11 @@ export const FindStoreByIdReducer = (state = { stores: [] }, action) => {
 export const StoreDeleteReducer = (state = {}, action) => {
   switch (action.type) {
     case DELETE_STORE_REQUEST:
-      return { loading: true };
+      return { deleted: false };
     case DELETE_STORE_SUCCESS:
-      return { loading: false, data: action.payload };
+      return { deleted: true };
     case DELETE_STORE_FAIL:
-      return { loading: true, error: action.payload };
+      return { deleted: false, error: action.payload };
     default:
       return state;
   }

@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { LoginAction, LoginSendOTPAction } from "../Actions/loginAction";
+import { toast } from "react-toastify";
 
+toast.configure();
 function SignIn(props) {
   const [phone, setPhone] = useState();
   const [otp, setOtp] = useState();
-  const signin_status = useSelector((state) => state.loginReducer);
+  // const signin_status = useSelector((state) => state.loginReducer);
   const otpStatus = useSelector((state) => state.loginSendOTPReducer);
-  const { loading } = signin_status;
+
   const { success, otpError } = otpStatus;
   const dispatch = useDispatch();
   const handleSendOTP = (e) => {
@@ -52,6 +54,10 @@ function SignIn(props) {
                 <input
                   placeholder="Mobile Number"
                   type="text"
+                  pattern="[0-9]{10}"
+                  size="10"
+                  minlength="10"
+                  maxlength="10"
                   className="input_field"
                   onChange={(e) => setPhone(e.target.value)}
                 />
@@ -63,10 +69,13 @@ function SignIn(props) {
                   type="text"
                   placeholder="Click to receive OTP"
                   className="input_field_otp"
+                  pattern="[0-9]{6}"
+                  size="6"
+                  minlength="6"
+                  maxlength="6"
                   onChange={(e) => setOtp(e.target.value)}
                   disabled={success ? false : true}
                 />
-
                 <button
                   value="Resend&nbsp;Otp"
                   onClick={handleSendOTP}
@@ -74,9 +83,6 @@ function SignIn(props) {
                 >
                   Send OTP
                 </button>
-                {success && (
-                  <div class="error_msg">OTP has Been Sent On Your Phone</div>
-                )}
               </div>
               <div className="sc-hOPeYd button_row">
                 <button type="submit" value="Verify" className="danger_button">

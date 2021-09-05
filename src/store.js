@@ -29,7 +29,6 @@ const reducer = combineReducers({
   sendImageToEmailReducers: SendImageToEmailReducers,
   sendImageToWhatsAppReducers: SendImageToWhatsAppReducers,
   updateStoreReducers: UpdateStoreReducers,
-  
 });
 
 const composeEnhancers =

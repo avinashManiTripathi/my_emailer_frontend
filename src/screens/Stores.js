@@ -4,15 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { DeleteStoreByIdAction, findAllStores } from "../Actions/storeAction";
 import Loader from "../components/Loader";
 import { AddStore } from "../Actions/storeAction";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 const Stores = (props) => {
   const FindStores = useSelector((state) => state.findStoreReducer);
+  const deletedReducers = useSelector((state) => state.storeDeleteReducer);
+  const { deleted } = deletedReducers;
   const { loading, error, data } = FindStores;
   let storeLength = data ? data.length > 0 : false;
   const [handleLength, setHandleLength] = useState(false);
-  console.log("storeLength" + storeLength);
-  console.log("handleLength " + handleLength);
   const history = useHistory();
   const [storeName, setStoreName] = useState();
   const [storeAddress, setStoreAddress] = useState();
@@ -23,9 +23,6 @@ const Stores = (props) => {
   const [mobileNumber, setMobileNumber] = useState();
   const [validationError, setValidationError] = useState();
 
-  //const AddStores = useSelector((state) => state.addstore);
-  //const { loading } = AddStores;
-
   const dispatch = useDispatch();
   const redirectToStepOne = () => {
     history.push("/step1");
@@ -33,6 +30,7 @@ const Stores = (props) => {
 
   const handleStoreDelete = (id) => {
     dispatch(DeleteStoreByIdAction(id));
+    dispatch(findAllStores());
   };
 
   const handleStoreOnSubmit = (e) => {
@@ -53,7 +51,7 @@ const Stores = (props) => {
         )
       );
       setHandleLength(false);
-      history.push("/stores");
+      dispatch(findAllStores());
     }
   };
 
@@ -107,6 +105,14 @@ const Stores = (props) => {
         <div>
           {storeLength ? (
             <div className="container mb-5 ">
+              {/* {deleted && (
+                <div
+                  class="col align-center flot-none alert alert-success mt-4"
+                  role="alert"
+                >
+                  Store Deleted Successfully
+                </div>
+              )} */}
               {data
                 ? data.map((store) => {
                     return (
@@ -135,12 +141,13 @@ const Stores = (props) => {
                             bottom: 10,
                           }}
                         >
-                          <button
+                          <Link
+                            to={`/update/store/${store._id}`}
                             className="m-1 store_action_button"
                             style={{ background: "rgb(221, 221, 221)" }}
                           >
                             Edit
-                          </button>
+                          </Link>
                           <button
                             className=" m-1  store_action_button"
                             onClick={() => handleStoreDelete(store._id)}
