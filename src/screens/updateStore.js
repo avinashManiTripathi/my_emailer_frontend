@@ -83,7 +83,7 @@ const UpdateStore = (props) => {
       store.city == null ||
       store.pin_code == null
     ) {
-      toast("* Plese Enter All Fields ");
+      toast.error("* Plese Enter All Fields ");
       isValid = false;
     }
 

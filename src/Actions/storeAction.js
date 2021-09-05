@@ -125,7 +125,7 @@ export const SendStoreImageToWhatsApp = (phone) => async (dispatch) => {
   });
   try {
     const { data } = await Axios.post(
-      `http://myemailer123.herokuapp.com/api/store/whatsapp`,
+      `https://myemailer123.herokuapp.com/api/store/whatsapp`,
       { phone },
       {
         headers: authHeader(),
