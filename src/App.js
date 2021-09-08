@@ -6,7 +6,6 @@ import Landing from "./screens/Landing";
 import Steps from "./screens/Steps";
 import Stores from "./screens/Stores";
 import Step1 from "./screens/Step1";
-import Step2 from "./screens/Step2";
 import Share from "./screens/Share";
 import Edit from "./screens/Edit";
 import SignIn from "./Auth/SignIn";
@@ -15,6 +14,7 @@ import UpdateStore from "./screens/updateStore";
 import Protected from "./Protected/Protected";
 
 import "react-toastify/dist/ReactToastify.css";
+import Preview from "./screens/Preview";
 
 function App() {
   return (
@@ -41,7 +41,7 @@ function App() {
             <Protected Cmp={Step1}></Protected>
           </Route>
           <Route path="/preview">
-            <Protected Cmp={Step2}></Protected>
+            <Protected Cmp={Preview}></Protected>
           </Route>
           <Route path="/share">
             <Protected Cmp={Share}></Protected>

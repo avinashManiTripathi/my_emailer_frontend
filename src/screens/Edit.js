@@ -18,7 +18,14 @@ const Edit = (props) => {
   const [image, setImage] = useState(null);
   const [selectedValue, setSelectedValue] = useState();
 
-  const [crop, setCrop] = useState({ aspect: 16 / 9 });
+  const [crop, setCrop] = useState({
+    aspect: 16 / 9,
+    unit: "px", // default, can be 'px' or '%'
+    x: 130,
+    y: 50,
+    width: 150,
+    height: 150,
+  });
   const [result, setResult] = useState();
 
   const handleFileChange = (e) => {

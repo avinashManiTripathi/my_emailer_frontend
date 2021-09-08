@@ -1,12 +1,12 @@
 import Axios from "axios";
-import React, { useRef, useCallback, useEffect, useState } from "react";
+import React, { useRef, useCallback, useEffect } from "react";
 import { toJpeg } from "html-to-image";
 import authHeader from "../Helper/auth-header";
 import { useDispatch, useSelector } from "react-redux";
 import { FindStoreByIdAction } from "../Actions/storeAction";
 import { useHistory } from "react-router-dom";
 
-function Step2(props) {
+const Preview = () => {
   const dispatch = useDispatch();
   const storeId = localStorage.getItem("storeId");
   const ref = useRef(null);
@@ -14,10 +14,8 @@ function Step2(props) {
   const { stores } = Store;
   const blankImage = localStorage.getItem("blankImage");
   const cropperImage = localStorage.getItem("cropperImage");
-  const [uploadStatus, setUploadStatus] = useState(false);
   const history = useHistory();
   const onButtonClick = useCallback(() => {
-    setUploadStatus(true);
     if (ref.current === null) {
       return;
     }
@@ -37,7 +35,6 @@ function Step2(props) {
           }
         )
           .then((response) => {
-            setUploadStatus(false);
             history.push("/share");
           })
           .catch((error) => {
@@ -53,8 +50,6 @@ function Step2(props) {
   useEffect(() => {
     dispatch(FindStoreByIdAction(storeId));
   }, [dispatch]);
-
-  console.log("uploadStatus" + uploadStatus);
 
   return (
     <div>
@@ -101,32 +96,20 @@ function Step2(props) {
                     marginRight: "auto",
                   }}
                 >
-                  <div className="m-1 bod">
-                    <img
-                      src="https://myemailer.in/static/media/Address.85649ac7.png"
-                      className="pretxt_icon"
-                      alt=""
-                    />
+                  <div>
+                    {/* <i class="fas fa-map-marker-alt pretxt_icon"></i> */}
                     <small className="pretxt">
                       {stores.store_address} {stores.state}
-                      {stores.city} {stores.pin_code}
+                      {stores.city} {stores.pin_code} :
                     </small>
                   </div>
-                  <div className="m-1">
-                    <img
-                      src="https://myemailer.in/static/media/Email.bac40766.png"
-                      className="pretxt_icon"
-                      alt=""
-                    />
-                    <text className="pretxt">{stores.email_address}</text>
+                  <div className="bod">
+                    {/* <i class="fas fa-envelope pretxt_icon"></i> */}
+                    <text className="pretxt"> {stores.email_address} : </text>
                   </div>
-                  <div className="m-1">
-                    <img
-                      alt=""
-                      src="https://myemailer.in/static/media/Phone.436f0e91.png"
-                      className="pretxt_icon"
-                    />
-                    <text className="pretxt">{stores.mobile_number}</text>
+                  <div className="bod">
+                    {/* <i class="fas fa-phone-alt pretxt_icon"></i> */}
+                    <text className="pretxt"> {stores.mobile_number}</text>
                   </div>
                 </div>{" "}
               </div>
@@ -153,6 +136,6 @@ function Step2(props) {
       </div>
     </div>
   );
-}
+};
 
-export default Step2;
+export default Preview;

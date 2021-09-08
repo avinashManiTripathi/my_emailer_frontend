@@ -52,7 +52,7 @@ const Share = (props) => {
         const url = window.URL.createObjectURL(new Blob([blob]));
         const link = document.createElement("a");
         link.href = url;
-        link.setAttribute("download", `file.jpeg`);
+        link.setAttribute("download", `MyStoreEmailer.jpeg`);
         document.body.appendChild(link);
         link.click();
         link.parentNode.removeChild(link);
@@ -109,17 +109,17 @@ const Share = (props) => {
                         margin: "30px",
                       }}
                     >
-                      <img
-                        src="https://myemailer123.herokuapp.com/images/WhatsApp.png"
-                        alt="sddf"
-                        style={{ width: "75px", marginLeft: "40px" }}
-                      />
                       <button
                         data-toggle="modal"
                         data-target="#whatsapp_modal"
                         className="share_link"
                         style={{ fontSize: "18px", marginLeft: "40px" }}
                       >
+                        <img
+                          src="https://myemailer123.herokuapp.com/images/WhatsApp.png"
+                          alt="sddf"
+                          style={{ width: "75px" }}
+                        />
                         WHATSAPP
                       </button>
                     </div>
@@ -133,33 +133,32 @@ const Share = (props) => {
                         margin: "30px",
                       }}
                     >
-                      <img
-                        src="https://myemailer123.herokuapp.com/images/Email.png"
-                        style={{ width: "75px", marginRight: "40px" }}
-                        alt="zff"
-                      />
                       <button
                         data-toggle="modal"
                         data-target="#email_modal"
                         className="share_link"
                         style={{ fontSize: "18px", marginRight: "40px" }}
                       >
+                        <img
+                          src="https://myemailer123.herokuapp.com/images/Email.png"
+                          style={{ width: "75px" }}
+                          alt="zff"
+                        />
                         EMAIL
                       </button>
                     </div>
                   </div>
                   <div className="col-6 txtc">
-                    <img
-                      src="https://myemailer123.herokuapp.com/images/Download.png"
-                      style={{ width: "75px" }}
-                      alt="sg"
-                    ></img>
-
                     <button
                       onClick={onClickDownload}
                       style={{ fontSize: "18px" }}
                       className="share_link"
                     >
+                      <img
+                        src="https://myemailer123.herokuapp.com/images/Download.png"
+                        style={{ width: "75px" }}
+                        alt="sg"
+                      />
                       DOWNLOAD
                     </button>
                   </div>

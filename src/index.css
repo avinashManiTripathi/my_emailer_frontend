@@ -674,11 +674,12 @@ textarea {
   justify-content: center;
 }
 .pretxt_icon {
-  width: 30px;
+  width: 10px;
+  margin: 1px 8px;
 }
 .pretxt {
   font-family: "Ray-BanSansVarGX";
-  font-size: 15px;
+  font-size: 14px;
   max-width: 460;
   word-wrap: break-word;
 }
