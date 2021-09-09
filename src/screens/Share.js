@@ -8,7 +8,8 @@ import { findUserId } from "../Helper/auth-header";
 import { toast } from "react-toastify";
 
 toast.configure();
-const Share = (props) => {
+
+const Share = () => {
   const dispatch = useDispatch();
 
   useSelector((state) => state.sendImageToWhatsAppReducers);
@@ -17,8 +18,19 @@ const Share = (props) => {
   const [whatsappInput, setWhatsInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
 
+  function handleCloseModal() {
+    document.getElementById("email_modal").classList.remove("show", "d-block");
+    document
+      .getElementById("whatsapp_modal")
+      .classList.remove("show", "d-block");
+    document
+      .querySelectorAll(".modal-backdrop")
+      .forEach((el) => el.classList.remove("modal-backdrop"));
+  }
+
   const onClickSendEmail = (e) => {
     e.preventDefault();
+    handleCloseModal();
     if (
       emailInput != null &&
       emailInput.includes("@") &&
@@ -27,17 +39,22 @@ const Share = (props) => {
     ) {
       dispatch(SendStoreImageToEmail(emailInput));
     } else {
-      toast.error("please enter valid email");
+      toast.error("please enter valid email", {
+        position: "top-center",
+      });
     }
   };
 
   const onClickSendWhatsApp = (e) => {
     e.preventDefault();
+    handleCloseModal();
     var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
     if (whatsappInput.match(phoneno) && whatsappInput.trim().length === 10) {
       dispatch(SendStoreImageToWhatsApp(whatsappInput));
     } else {
-      toast.error("please enter valid number");
+      toast.error("please enter valid number", {
+        position: "top-center",
+      });
     }
   };
   const onClickDownload = () => {

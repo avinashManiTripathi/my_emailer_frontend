@@ -28,7 +28,9 @@ export const LoginAction = (phone, otp, hash, history) => async (dispatch) => {
       history.push("/landing");
     });
   } catch (error) {
-    toast.warn("Something Went Wrong Please Try Again");
+    toast.warn("Something Went Wrong Please Try Again", {
+      position: "top-center",
+    });
     dispatch({
       type: USER_LOGIN_FAIL,
       payload: error,
@@ -48,14 +50,21 @@ export const LoginSendOTPAction = (phone) => async (dispatch) => {
       }
     ).then((response) => {
       localStorage.setItem("hash", response.data.hash);
-      toast.success("OTP has been sent Please check");
+      toast.promise(
+        new Promise((resolve) => setTimeout(resolve, 3000)),
+        {
+          pending: "Sending OTP   ",
+          success: " Success👌",
+        },
+        { position: "top-center" }
+      );
     });
     dispatch({
       type: USER_LOGIN_SEND_OTP_SUCCESS,
       payload: data,
     });
   } catch (error) {
-    toast.warn(error.response.data.message);
+    toast.warn(error.response.data.message, { position: "top-center" });
     dispatch({
       type: USER_LOGIN_SEND_OTP_FAIL,
       payload:

@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { LoginAction, LoginSendOTPAction } from "../Actions/loginAction";
-import { toast } from "react-toastify";
 
-toast.configure();
-function SignIn(props) {
+const SignIn = (props) => {
   const [phone, setPhone] = useState();
   const [otp, setOtp] = useState();
-  // const signin_status = useSelector((state) => state.loginReducer);
   const otpStatus = useSelector((state) => state.loginSendOTPReducer);
 
   const { success, otpError } = otpStatus;
@@ -98,5 +95,5 @@ function SignIn(props) {
       </div>
     </div>
   );
-}
+};
 export default SignIn;

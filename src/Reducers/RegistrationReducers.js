@@ -28,7 +28,7 @@ export const VerifyAndRegistrationReducer = (state = {}, action) => {
     case USER_REGISTRATION_SUCCESS:
       return { loading: false, data: action.paylaod };
     case USER_REGISTRATION_FAIL:
-      return { loading: false, error: action.paylaod };
+      return { loading: false, reg_error: action.paylaod };
     default:
       return state;
   }

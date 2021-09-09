@@ -5,7 +5,6 @@ import authHeader from "../Helper/auth-header";
 import { useDispatch, useSelector } from "react-redux";
 import { FindStoreByIdAction } from "../Actions/storeAction";
 import { useHistory } from "react-router-dom";
-
 const Preview = () => {
   const dispatch = useDispatch();
   const storeId = localStorage.getItem("storeId");
@@ -14,6 +13,7 @@ const Preview = () => {
   const { stores } = Store;
   const blankImage = localStorage.getItem("blankImage");
   const cropperImage = localStorage.getItem("cropperImage");
+
   const history = useHistory();
   const onButtonClick = useCallback(() => {
     if (ref.current === null) {
@@ -26,7 +26,7 @@ const Preview = () => {
     })
       .then(function (dataUrl) {
         Axios.post(
-          "https://myemailer123.herokuapp.com/data",
+          "https://myemailer123.herokuapp.com/api/upload",
           {
             dataUrl,
           },

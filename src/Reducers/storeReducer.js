@@ -27,7 +27,7 @@ export const storeReducers = (state = {}, action) => {
     case STORE_REQUEST:
       return { loading: true };
     case STORE_SUCCESS:
-      return { loading: false, store: action.payload };
+      return { ...state, loading: false, store: action.payload };
     case STORE_FAIL:
       return { loading: false, error: action.payload };
     default:
@@ -53,7 +53,7 @@ export const FindAllStoreReducers = (state = { data: [] }, action) => {
     case FIND_STORE_REQUEST:
       return { loading: true };
     case FIND_STORE_SUCCESS:
-      return { loading: false, data: action.payload };
+      return { ...state, loading: false, data: action.payload };
     case FIND_STORE_FAIL:
       return { loading: true, error: action.payload };
     default:

@@ -15,7 +15,7 @@ export const SendOTPAction = (phone) => async (dispatch) => {
     type: SEND_OTP_REQUEST,
   });
   try {
-    await Axios.post("https://myemailer123.herokuapp.com/sendOTP", {
+    await Axios.post("https://myemailer123.herokuapp.com/api/signup/send_otp", {
       phone,
     }).then((response) => {
       localStorage.setItem("hash", response.data.hash);
@@ -24,12 +24,13 @@ export const SendOTPAction = (phone) => async (dispatch) => {
         payload: response.data,
       });
     });
-    toast.success("OTP has been sent Please check");
+    toast.success("OTP has been sent Please check", { position: "top-center" });
   } catch (error) {
     toast.warn(
       error.response && error.response.data.message
         ? error.response.data.message
-        : error.message
+        : error.message,
+      { position: "top-center" }
     );
     dispatch({
       type: SEND_OTP_FAIL,
@@ -48,7 +49,7 @@ export const VerifyAndRegistrationAction =
       type: USER_REGISTRATION_REQUEST,
     });
     try {
-      const { data } = await Axios.post(
+      const data = await Axios.post(
         "https://myemailer123.herokuapp.com/api/registration",
         {
           one_time_access_code,
@@ -59,14 +60,29 @@ export const VerifyAndRegistrationAction =
           hash,
         }
       );
+      toast.promise(
+        new Promise((resolve) => setTimeout(resolve, 3000)),
+        {
+          pending: "Sending    ",
+          success: "Register Successfully",
+        },
+        { position: "top-center" }
+      );
+
+      console.log("data" + data);
       dispatch({
         type: USER_REGISTRATION_SUCCESS,
         payload: data,
       });
     } catch (error) {
+      toast.warn(error.response.data.message, { position: "top-center" });
+
       dispatch({
         type: USER_REGISTRATION_FAIL,
-        payload: error,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
       });
     }
   };

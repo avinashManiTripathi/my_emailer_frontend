@@ -56,13 +56,13 @@ export const AddStore =
           headers: authHeader(),
         }
       );
-      toast.success("Store Added Successfully");
+      toast.success("Store Added Successfully", { position: "top-center" });
       dispatch({
         type: STORE_SUCCESS,
         payload: data,
       });
     } catch (error) {
-      toast.warn("Failed Try Again");
+      toast.warn("Failed Try Again", { position: "top-center" });
       dispatch({
         type: STORE_FAIL,
         payload: error,
@@ -105,13 +105,27 @@ export const SendStoreImageToEmail = (email) => async (dispatch) => {
         headers: authHeader(),
       }
     );
-    toast.success("Success Please Check Your Inbox");
+    toast.promise(
+      new Promise((resolve) => setTimeout(resolve, 3000)),
+      {
+        pending: "Sending Email  ",
+        success: " Success check your Email👌",
+      },
+      { position: "top-center" }
+    );
     dispatch({
       type: SEND_IMAGETOEMAIL_SUCCESS,
       payload: data,
     });
   } catch (error) {
-    toast.warn("failed");
+    toast.promise(
+      new Promise((resolve) => setTimeout(resolve, 3000)),
+      {
+        pending: "Sending Email  ",
+        error: "fail",
+      },
+      { position: "top-center" }
+    );
     dispatch({
       type: SEND_IMAGETOEMAIL_FAIL,
       payload: error,
@@ -131,20 +145,28 @@ export const SendStoreImageToWhatsApp = (phone) => async (dispatch) => {
         headers: authHeader(),
       }
     );
-    toast.promise(new Promise((resolve) => setTimeout(resolve, 3000)), {
-      pending: "Sending message  ",
-      success: " Success👌",
-      error: "Failed 🤯",
-    });
+    toast.promise(
+      new Promise((resolve) => setTimeout(resolve, 3000)),
+      {
+        pending: "Sending message  ",
+        success: " Success👌",
+        error: "Failed 🤯",
+      },
+      { position: "top-center" }
+    );
 
     dispatch({
       type: SEND_IMAGETOWHATSAPP_SUCCESS,
       payload: data,
     });
   } catch (error) {
-    toast.promise(new Promise((resolve) => setTimeout(resolve, 3000)), {
-      error: "Failed 🤯",
-    });
+    toast.promise(
+      new Promise((resolve) => setTimeout(resolve, 3000)),
+      {
+        error: "Failed 🤯",
+      },
+      { position: "top-center" }
+    );
 
     dispatch({
       type: SEND_IMAGETOWHATSAPP_FAIL,
@@ -187,13 +209,13 @@ export const DeleteStoreByIdAction = (id) => async (dispatch) => {
         headers: authHeader(),
       }
     ).then((response) => {
-      toast.success("Deleted Successfully");
+      toast.success("Deleted Successfully", { position: "top-center" });
       dispatch({
         type: DELETE_STORE_SUCCESS,
       });
     });
   } catch (error) {
-    toast.warn("Failed Try again ");
+    toast.warn("Failed Try again ", { position: "top-center" });
     dispatch({
       type: DELETE_STORE_FAIL,
       payload: error,
@@ -221,14 +243,14 @@ export const UpdateStoreByIdAction = (store, history) => async (dispatch) => {
         headers: authHeader(),
       }
     );
-    toast.success("Updated Successfully");
+    toast.success("Updated Successfully", { position: "top-center" });
     dispatch({
       type: UPDATE_STOREBYID_SUCCESS,
       payload: data,
     });
     history.push("/stores");
   } catch (error) {
-    toast.warn("Update Failed");
+    toast.warn("Update Failed", { position: "top-center" });
     dispatch({
       type: UPDATE_STOREBYID_FAIL,
       payload: error,

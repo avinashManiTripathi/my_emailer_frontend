@@ -21,6 +21,8 @@ function SignUp(props) {
   const [dcError, setDCError] = useState();
   const [otpError, setOTPError] = useState();
 
+  const { reg_error } = userReg;
+
   const redirectToSignIn = () => {
     props.history.push("/signin");
   };
@@ -56,12 +58,9 @@ function SignUp(props) {
       otacError.otacErrorEmpty = "Please Enter OTOC";
       isValid = false;
     }
-    if (cc == null) {
-      ccError.ccErrorEmpty = "Please Enter CC";
-      isValid = false;
-    }
-    if (dc == null) {
-      dcError.dcErrorEmpty = "Please Enter DC";
+
+    if (dc == null && cc == null) {
+      dcError.dcErrorEmpty = "Please Enter DC or CC";
       isValid = false;
     }
     if (otp == null) {
