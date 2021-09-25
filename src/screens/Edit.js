@@ -104,11 +104,11 @@ class Edit extends Component {
               <div className="row">
                 <div className="col-md-2"></div>
                 <div className="col-md-8 mb-5">
-                  <div className="position-relative bg-secondary">
+                  <div class="position-relative bg-secondary">
                     <img
                       src={this.Stepdata}
                       alt="test"
-                      className="img-responsive img-hundo"
+                      class="img-responsive img-hundo"
                     />
 
                     <div className="col-md-5 text-center">
@@ -149,9 +149,7 @@ class Edit extends Component {
                                   alignItems: "center",
                                 }}
                               >
-                                <h1 className=" mb-3">
-                                  Upload Your Company Logo
-                                </h1>
+                                <h1 className=" mb-3">Upload Your Logo</h1>
 
                                 <div
                                   className="ReactCrop ReactCrop--fixed-aspect"
@@ -175,7 +173,7 @@ class Edit extends Component {
                       )}
                     </div>
 
-                    <div className="position-absolute caption">
+                    <div class="position-absolute caption">
                       <label
                         for="imghaver"
                         className="cropperImage previewimg  "
@@ -220,7 +218,7 @@ class Edit extends Component {
                       </label>
                     </div>
 
-                    <div className="position-absolute select_caption">
+                    <div class="position-absolute select_caption">
                       <select
                         onChange={(e) =>
                           this.handleSelectedStore(e.target.value)

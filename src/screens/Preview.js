@@ -32,11 +32,10 @@ const Preview = () => {
     toast.promise(
       new Promise((resolve) => setTimeout(resolve, 3000)),
       {
-        pending: "uploading your Template",
+        pending: "Uploading Your Template",
       },
       { position: "top-center", autoClose: 10000 }
     );
-
     toJpeg(ref.current, {
       cacheBust: true,
       imagePlaceholder: true,
@@ -80,7 +79,7 @@ const Preview = () => {
               style={{ position: "relative" }}
               id="capture"
             >
-              <img className="w-100 blankImage" alt="dfsf" src={blankImage} />
+              <img className="w-100 blankImage" alt="" src={blankImage} />
               <div className="prev-cropper_img">
                 <div className="main_cropperImage">
                   <img
@@ -102,7 +101,8 @@ const Preview = () => {
                   className="d-flex jcc bod"
                   style={{
                     position: "absolute",
-                    bottom: "0",
+
+                    bottom: "1%",
                     left: "0",
                     right: "0",
                     marginLeft: "auto",
@@ -110,44 +110,18 @@ const Preview = () => {
                   }}
                 >
                   <div>
-                    <img
-                      src={addressImage}
-                      alt=""
-                      style={{
-                        width: 15,
-                        marginRight: 5,
-                        marginBottom: 5,
-                      }}
-                    />
+                    <img src={addressImage} alt="" className="prev-icon" />
                     <small className="pretxt">
                       {stores.store_address} {stores.state}
                       {stores.city} {stores.pin_code} :
                     </small>
                   </div>
                   <div className="bod">
-                    <img
-                      src={emailImage}
-                      alt=""
-                      style={{
-                        width: 24,
-                        marginRight: 5,
-                        marginBottom: 1,
-                        marginLeft: 5,
-                      }}
-                    />
+                    <img src={emailImage} alt="" className="prev-icon" />
                     <text className="pretxt"> {stores.email_address} : </text>
                   </div>
                   <div className="bod">
-                    <img
-                      src={phoneImage}
-                      alt=""
-                      style={{
-                        width: 16,
-                        marginRight: 1,
-                        marginBottom: 3,
-                        marginLeft: 3,
-                      }}
-                    />
+                    <img src={phoneImage} alt="" className="prev-icon" />
                     <text className="pretxt"> {stores.mobile_number}</text>
                   </div>
                 </div>{" "}

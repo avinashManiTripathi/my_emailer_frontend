@@ -482,27 +482,6 @@ h1 {
   float: left;
 }
 
-.signin-border {
-  border-left: 3px solid gray;
-  /* display: inline-block;
-  float: right; */
-  height: 313px;
-  position: absolute;
-  margin-left: 760px;
-  margin-top: -293px;
-  box-shadow: 0 27px 40px rgb(0 0 0 / 10%);
-  -webkit-border-image: -webkit-gradient(
-      linear,
-      left top,
-      left bottom,
-      from(lightgray),
-      to(lightgray),
-      color-stop(1.5, #fff),
-      color-stop(1.5, #66cc00)
-    )
-    2 4 1 4 repeat repeat;
-}
-
 .row.vertical-divider {
   overflow: hidden;
 }
@@ -804,10 +783,8 @@ textarea {
 }
 
 .cropperImage {
-  /* margin-top: -200px;  */
-  /* margin-bottom: 20px; */
-  width: 200px;
-  height: 100px;
+  width: 140px;
+  height: 70px;
 }
 .raybtnn {
   background-color: #fff;
@@ -879,11 +856,15 @@ textarea {
   width: 150px;
   font-size: 15px;
 }
+.prev-icon {
+  margin: 0px 5px;
+  width: 12px;
+}
 
 .main_cropperImage {
   position: absolute;
   bottom: 3%;
-  top: 97%;
+  top: 95%;
   left: 50%;
   transform: translate(-50%, -50%);
 }

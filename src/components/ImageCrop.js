@@ -20,8 +20,8 @@ const ImageCrop = ({
             scale={scaleValue}
             rotate={0}
             ref={setEditorRef}
-            height={100}
-            width={200}
+            height={80}
+            width={160}
           />
           <div className="d-flex  mt-3">
             <span className="inc-dec-button">-</span>
