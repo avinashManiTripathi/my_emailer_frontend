@@ -20,11 +20,7 @@ const Landing = (props) => {
                 <span className="rayfont_3">AIR</span>{" "}
               </div>
               <div className="rayfont_container_left">
-                <p className="rayfont_p">
-                  CREATE YOUR OWN{" "}
-                  <span className="rayfont_p_span"> RAY-BAN </span>
-                  EMAILER
-                </p>
+                <p className="rayfont_p">CREATE YOUR OWN My-Emailer</p>
                 <p className="rayfont_p rayfont_container_left">
                   IN JUST 3 EASY STEPS
                 </p>

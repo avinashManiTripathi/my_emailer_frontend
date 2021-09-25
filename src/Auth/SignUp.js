@@ -84,7 +84,7 @@ const SignUp = (props) => {
           </div>
           <p className="paragraph">
             A unique marketing initiative <br /> exclusively for My-Emailer
-            Authorised Dealers.
+            Authorised Dealers
           </p>
           <div className="form-container-signup">
             <h5 className="black_title">SIGN UP</h5>

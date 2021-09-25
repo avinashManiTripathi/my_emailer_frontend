@@ -107,7 +107,7 @@ export const SendStoreImageToEmail = (email) => async (dispatch) => {
   });
   try {
     const { data } = await Axios.post(
-      `https://myemailer123.herokuapp.com/api/store/email`,
+      `http://localhost:5000/api/store/email`,
       { email },
       {
         headers: authHeader(),
@@ -273,7 +273,7 @@ export const UploadUserEmailTemplateAction =
     });
     try {
       await Axios.post(
-        `https://myemailer123.herokuapp.com/api/upload`,
+        `http://localhost:5000/api/upload`,
         { dataUrl },
         { headers: authHeader() }
       ).then((response) => {
