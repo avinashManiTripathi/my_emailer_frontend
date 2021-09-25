@@ -1,6 +1,6 @@
 {
-  "short_name": "Ray-Ban",
-  "name": "Ray-Ban E-Mailer ",
+  "short_name": "My-Emailer",
+  "name": "My-Emailer ",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

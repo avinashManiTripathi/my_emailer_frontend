@@ -16,7 +16,7 @@ function Navbar(props) {
       <div className="sc-cTJkRt lmGFyU">
         <img
           alt=""
-          src="https://myemailer123.herokuapp.com/images/RBB.png"
+          // src="https://myemailer123.herokuapp.com/images/RBB.png"
           className="sc-efHYUO cFSLxQ"
         />
         {user ? (

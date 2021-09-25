@@ -33,7 +33,10 @@ export const LoginAction = (phone, otp, hash, history) => async (dispatch) => {
     });
     dispatch({
       type: USER_LOGIN_FAIL,
-      payload: error,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
     });
   }
 };
@@ -43,12 +46,9 @@ export const LoginSendOTPAction = (phone) => async (dispatch) => {
     type: USER_LOGIN_SEND_OTP_REQUEST,
   });
   try {
-    const data = await Axios.post(
-      "https://myemailer123.herokuapp.com/api/signin/send_otp",
-      {
-        phone,
-      }
-    ).then((response) => {
+    await Axios.post("https://myemailer123.herokuapp.com/api/signin/send_otp", {
+      phone,
+    }).then((response) => {
       localStorage.setItem("hash", response.data.hash);
       toast.promise(
         new Promise((resolve) => setTimeout(resolve, 3000)),
@@ -58,13 +58,18 @@ export const LoginSendOTPAction = (phone) => async (dispatch) => {
         },
         { position: "top-center" }
       );
-    });
-    dispatch({
-      type: USER_LOGIN_SEND_OTP_SUCCESS,
-      payload: data,
+      dispatch({
+        type: USER_LOGIN_SEND_OTP_SUCCESS,
+        payload: response.data.hash,
+      });
     });
   } catch (error) {
-    toast.warn(error.response.data.message, { position: "top-center" });
+    toast.warn(
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message,
+      { position: "top-center" }
+    );
     dispatch({
       type: USER_LOGIN_SEND_OTP_FAIL,
       payload:

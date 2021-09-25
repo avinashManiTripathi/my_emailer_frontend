@@ -8,7 +8,6 @@ import { findUserId } from "../Helper/auth-header";
 import { toast } from "react-toastify";
 
 toast.configure();
-
 const Share = () => {
   const dispatch = useDispatch();
 
@@ -27,7 +26,6 @@ const Share = () => {
       .querySelectorAll(".modal-backdrop")
       .forEach((el) => el.classList.remove("modal-backdrop"));
   }
-
   const onClickSendEmail = (e) => {
     e.preventDefault();
     handleCloseModal();
@@ -89,7 +87,7 @@ const Share = () => {
           }}
         >
           <div className="col-md-6 txtc">
-            <h1>SHARE YOUR RAY-BAN E-MAILER</h1>
+            <h1>SHARE YOUR My-Emailer</h1>
           </div>
         </div>
       </div>

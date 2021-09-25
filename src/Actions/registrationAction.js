@@ -68,14 +68,12 @@ export const VerifyAndRegistrationAction =
         },
         { position: "top-center" }
       );
-
-      console.log("data" + data);
       dispatch({
         type: USER_REGISTRATION_SUCCESS,
         payload: data,
       });
     } catch (error) {
-      toast.warn(error.response.data.message, { position: "top-center" });
+      toast.error(error.response.data.message, { position: "top-center" });
 
       dispatch({
         type: USER_REGISTRATION_FAIL,

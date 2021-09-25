@@ -20,6 +20,9 @@ import {
   UPDATE_STOREBYID_FAIL,
   UPDATE_STOREBYID_REQUEST,
   UPDATE_STOREBYID_SUCCESS,
+  UPLOAD_TEMPLATE_FAIL,
+  UPLOAD_TEMPLATE_REQUEST,
+  UPLOAD_TEMPLATE_SUCCESS,
 } from "../Constants/StoreConstants";
 
 export const storeReducers = (state = {}, action) => {
@@ -108,6 +111,19 @@ export const StoreDeleteReducer = (state = {}, action) => {
       return { deleted: true };
     case DELETE_STORE_FAIL:
       return { deleted: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const UploadUserEmailTemplateReducer = (state = {}, action) => {
+  switch (action.type) {
+    case UPLOAD_TEMPLATE_REQUEST:
+      return { loading: false };
+    case UPLOAD_TEMPLATE_SUCCESS:
+      return { ...state, loading: true, data: action.payload };
+    case UPLOAD_TEMPLATE_FAIL:
+      return { loading: false, error: action.payload };
     default:
       return state;
   }

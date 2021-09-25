@@ -6,10 +6,9 @@ import Loader from "../components/Loader";
 import { AddStore } from "../Actions/storeAction";
 import { useHistory, Link } from "react-router-dom";
 
-const Stores = (props) => {
+const Stores = () => {
   const FindStores = useSelector((state) => state.findStoreReducer);
-  const deletedReducers = useSelector((state) => state.storeDeleteReducer);
-  const { deleted } = deletedReducers;
+  useSelector((state) => state.storeDeleteReducer);
   const { loading, error, data } = FindStores;
   let storeLength = data ? data.length > 0 : false;
   const [handleLength, setHandleLength] = useState(false);

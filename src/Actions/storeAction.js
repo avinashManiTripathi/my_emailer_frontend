@@ -20,6 +20,9 @@ import {
   UPDATE_STOREBYID_FAIL,
   UPDATE_STOREBYID_REQUEST,
   UPDATE_STOREBYID_SUCCESS,
+  UPLOAD_TEMPLATE_FAIL,
+  UPLOAD_TEMPLATE_REQUEST,
+  UPLOAD_TEMPLATE_SUCCESS,
 } from "../Constants/StoreConstants";
 import authHeader from "../Helper/auth-header";
 import { toast } from "react-toastify";
@@ -62,10 +65,15 @@ export const AddStore =
         payload: data,
       });
     } catch (error) {
-      toast.warn("Failed Try Again", { position: "top-center" });
+      toast.warn(error.response && error.response.data.message, {
+        position: "top-center",
+      });
       dispatch({
         type: STORE_FAIL,
-        payload: error,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
       });
     }
   };
@@ -257,3 +265,32 @@ export const UpdateStoreByIdAction = (store, history) => async (dispatch) => {
     });
   }
 };
+
+export const UploadUserEmailTemplateAction =
+  (dataUrl, history) => async (dispatch) => {
+    dispatch({
+      type: UPLOAD_TEMPLATE_REQUEST,
+    });
+    try {
+      await Axios.post(
+        `https://myemailer123.herokuapp.com/api/upload`,
+        { dataUrl },
+        { headers: authHeader() }
+      ).then((response) => {
+        console.log("response", response.data);
+        dispatch({
+          type: UPLOAD_TEMPLATE_SUCCESS,
+          payload: response.data,
+        });
+        history.push("/share");
+      });
+    } catch (error) {
+      dispatch({
+        type: UPLOAD_TEMPLATE_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };

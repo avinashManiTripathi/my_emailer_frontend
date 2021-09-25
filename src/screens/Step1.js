@@ -11,9 +11,6 @@ function Step1(props) {
     setImages(data);
     setShow(true);
   };
-  const redirectToEdit = () => {
-    props.history.push("/edit");
-  };
 
   const closePopUp = () => setShow(false);
 
@@ -59,8 +56,8 @@ function Step1(props) {
                 />
               </div>
 
-              <Link to="/edit" className="sc-iCoGMd kMthTr">
-                select
+              <Link to="/edit" className=" redirectLink">
+                Select
               </Link>
             </div>
           </div>
@@ -110,5 +107,4 @@ function Step1(props) {
     </div>
   );
 }
-
 export default Step1;

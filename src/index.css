@@ -116,9 +116,9 @@ body {
 }
 
 .danger_button {
-  width: 45%;
+  width: 42%;
   text-align: center;
-  padding: 15px;
+  padding: 5px 10px;
   background: red;
   color: rgb(255, 255, 255);
   border: 1px solid transparent;
@@ -204,6 +204,16 @@ body {
   margin-bottom: 20px;
   margin-top: 10px;
   opacity: 0.75;
+}
+
+.paragraph_signin {
+  font-family: Lato-Regular !important;
+  font-size: 16px;
+  /* margin-bottom: 20px; */
+  margin-top: 100px;
+  margin-left: -218px !important ;
+  opacity: 0.75;
+  float: left;
 }
 
 h1 {
@@ -320,6 +330,17 @@ h1 {
 
 /* -----------------------------------End Loader ---------------------------------------------- */
 
+.border-left {
+  border-right: 2px solid;
+  border-image-slice: 1;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-left-width: 1px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+}
+
 .img_container {
   box-shadow: 0 3px 24px -5px rgb(0 0 0 / 75%) !important;
 }
@@ -406,10 +427,93 @@ h1 {
   height: 568px;
   margin: 20px auto 10px;
   text-align: center;
-  background: rgb(228, 228, 228);
-  box-shadow: rgb(62 62 62) 0px 0px 20px;
+  /* background: rgb(228, 228, 228);
+  box-shadow: rgb(62 62 62) 0px 0px 20px; */
   padding: 50px 100px;
   box-sizing: border-box;
+  float: right;
+}
+
+.form-container-signup {
+  width: 700px;
+  max-width: 90%;
+  height: 568px;
+  margin: 20px auto 10px;
+  text-align: center;
+  /* background: rgb(228, 228, 228);
+  box-shadow: rgb(62 62 62) 0px 0px 20px; */
+  padding: 50px 100px;
+  box-sizing: border-box;
+}
+
+.style_title_signin {
+  font-family: "Ray-BanSansVarGX";
+  font-size: 43px;
+  color: rgb(167, 45, 36);
+  text-transform: uppercase;
+}
+/* .style_title_signin {
+	font-family: 'Ray-BanSansVarGX';
+	font-size: 43px;
+	color: rgb(167, 45, 36);
+	text-transform: uppercase;
+} */
+
+.style_title_signup {
+  font-family: "Ray-BanSansVarGX";
+  font-size: 43px;
+  color: rgb(167, 45, 36);
+  text-transform: uppercase;
+}
+.form-container-image {
+  width: 700px;
+  max-width: 90%;
+  height: 568px;
+  margin: 20px auto 10px;
+  text-align: center;
+  /* background: rgb(228, 228, 228);
+  box-shadow: rgb(62 62 62) 0px 0px 20px; */
+  padding: 50px 100px;
+  box-sizing: border-box;
+  float: left;
+}
+
+.signin-border {
+  border-left: 3px solid gray;
+  /* display: inline-block;
+  float: right; */
+  height: 313px;
+  position: absolute;
+  margin-left: 760px;
+  margin-top: -293px;
+  box-shadow: 0 27px 40px rgb(0 0 0 / 10%);
+  -webkit-border-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(lightgray),
+      to(lightgray),
+      color-stop(1.5, #fff),
+      color-stop(1.5, #66cc00)
+    )
+    2 4 1 4 repeat repeat;
+}
+
+.row.vertical-divider {
+  overflow: hidden;
+}
+.row.vertical-divider > div[class^="col-"] {
+  text-align: center;
+  padding-bottom: 100px;
+  margin-bottom: -100px;
+  border-left: 3px solid #f2f7f9;
+  border-right: 3px solid #f2f7f9;
+}
+.row.vertical-divider div[class^="col-"]:first-child {
+  border-left: none;
+}
+.row.vertical-divider div[class^="col-"]:last-child {
+  border-right: none;
 }
 .eSyZIh {
   width: 100%;
@@ -417,7 +521,7 @@ h1 {
   text-align: center;
   font-family: Ray-BanSansInline-Regular100;
 }
-.dXiuJH {
+.input_group {
   width: 100%;
   margin: 10px auto 20px;
   text-align: center;
@@ -428,6 +532,14 @@ h1 {
   flex-wrap: wrap;
   -webkit-box-pack: justify;
   justify-content: space-between;
+}
+
+.opt-error-messaage {
+  margin: -36px;
+  padding: 6px;
+  margin-left: 0px;
+  color: pink;
+  font-size: 14px;
 }
 
 .UjHkE {
@@ -536,7 +648,7 @@ textarea {
   line-height: inherit;
 }
 
-.kMthTr {
+.redirectLink {
   background-color: rgb(255, 13, 0);
   border: none;
   color: white;
@@ -549,6 +661,9 @@ textarea {
   margin-top: 40px;
   margin-bottom: 40px;
   border-radius: 4px;
+}
+.redirectLink:hover {
+  color: white;
 }
 
 .txtc {
@@ -687,7 +802,7 @@ textarea {
 .cropperImage {
   /* margin-top: -200px;  */
   /* margin-bottom: 20px; */
-  width: 180px;
+  width: 200px;
   height: 100px;
 }
 .raybtnn {
@@ -863,9 +978,156 @@ textarea {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+/*dffsfffasfaa start Popup */
+
+.react-responsive-modal-root {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+.react-responsive-modal-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+.react-responsive-modal-modal {
+  position: absolute;
+  width: 30%;
+  height: 70%;
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+  background: #fff;
+  box-shadow: 0 12px 15px 0 rgb(0 0 0 / 25%);
+  margin: 1.2rem;
+  padding: 1.2rem;
+  position: relative;
+  overflow-y: auto;
+}
+.react-responsive-modal-container {
+  position: relative;
+  height: 100%;
+  outline: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.fKwyEY {
+  background-color: rgb(255, 13, 0);
+  border: none;
+  color: white;
+  padding: 10px 55px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 22px;
+  font-family: Ray-BanSansVarGX;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+.ReactCrop--fixed-aspect {
+  position: relative;
+}
+
+.ReactCrop__image {
+  display: block;
+  width: 300px;
+  height: 300px;
+  -ms-touch-action: none;
+  touch-action: none;
+}
+
+.inc-dec-button {
+  margin: 0px 5px;
+  font-size: 40px;
+  color: rgb(0, 0, 0);
+}
+.editselect {
+  font-size: 15px;
+  padding: 10px 20px;
+  border: 1px solid red;
+  width: 530px;
+  border-radius: 10px;
+  height: 39px;
+}
+
+.cnkbFD {
+  background-color: rgb(255, 13, 0);
+  border: none;
+  color: white;
+  padding: 10px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 4px;
+  font-family: Ray-BanSansVarGX;
+  margin-top: 10px;
+  height: 55px;
+  font-size: 1.3rem !important;
+}
+
+/*------------------------------------------------ ssdsds            --------------------------*/
 /* -------------------------------- End Edit  -------------------------------- */
 
 @media only screen and (max-width: 900px) {
+  .react-responsive-modal-modal {
+    position: absolute;
+    width: 80%;
+    height: 70%;
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    background: #fff;
+    box-shadow: 0 12px 15px 0 rgb(0 0 0 / 25%);
+    margin: 1.2rem;
+    padding: 1.2rem;
+    position: relative;
+    overflow-y: auto;
+  }
+  .react-responsive-modal-container {
+    position: relative;
+    height: 100%;
+    outline: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
+  }
+
+  .fKwyEY {
+    background-color: rgb(255, 13, 0);
+    border: none;
+    color: white;
+    padding: 10px 55px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 22px;
+    font-family: Ray-BanSansVarGX;
+    border-radius: 4px;
+    margin-top: 20px;
+  }
+
+  .ReactCrop--fixed-aspect {
+    position: relative;
+  }
+
+  .ReactCrop__image {
+    display: block;
+    width: 200px;
+    height: 200px;
+    -ms-touch-action: none;
+    touch-action: none;
+  }
+
   .cropperImage {
     margin-top: -120px;
     margin-bottom: 10px;
@@ -891,6 +1153,16 @@ textarea {
     margin-bottom: 10px;
     width: 140px;
     height: 80px;
+  }
+
+  .form-container {
+    width: 700px;
+    max-width: 100%;
+    padding: 50px 10px;
+  }
+
+  .form-container-signup {
+    padding: 50px 2px;
   }
 
   .previewimg {
@@ -1147,13 +1419,6 @@ textarea {
     margin-top: 5px;
   }
 
-  .form-container {
-    padding: 20px;
-    margin-top: 10px;
-    box-shadow: rgb(211 211 211) 4px 4px 7px;
-    height: 575px;
-  }
-
   .imgRow {
     display: block;
   }
@@ -1390,86 +1655,3 @@ textarea {
   text-decoration: none;
   cursor: pointer;
 }
-/*dffsfffasfaa start Popup */
-
-.react-responsive-modal-root {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-}
-.react-responsive-modal-overlay {
-  background: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
-}
-.react-responsive-modal-modal {
-  max-width: 800px;
-  display: inline-block;
-  text-align: left;
-  vertical-align: middle;
-  background: #fff;
-  box-shadow: 0 12px 15px 0 rgb(0 0 0 / 25%);
-  margin: 1.2rem;
-  padding: 1.2rem;
-  position: relative;
-  overflow-y: auto;
-}
-.react-responsive-modal-container {
-  height: 100%;
-  outline: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  text-align: center;
-}
-
-.fKwyEY {
-  background-color: rgb(255, 13, 0);
-  border: none;
-  color: white;
-  padding: 10px 55px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 22px;
-  font-family: Ray-BanSansVarGX;
-  border-radius: 4px;
-  margin-top: 20px;
-}
-.ReactCrop__image {
-  display: block;
-  max-width: 100%;
-  -ms-touch-action: none;
-  touch-action: none;
-}
-.editselect {
-  font-size: 15px;
-  padding: 10px 20px;
-  border: 1px solid red;
-  width: 530px;
-  border-radius: 10px;
-  height: 39px;
-}
-
-.cnkbFD {
-  background-color: rgb(255, 13, 0);
-  border: none;
-  color: white;
-  padding: 10px 50px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 4px;
-  font-family: Ray-BanSansVarGX;
-  margin-top: 10px;
-  height: 55px;
-  font-size: 1.3rem !important;
-}
-
-/*------------------------------------------------ ssdsds            --------------------------*/

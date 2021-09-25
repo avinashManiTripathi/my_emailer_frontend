@@ -1,10 +1,16 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import signInImage from "../images/SignIn.jpg";
 import { useDispatch, useSelector } from "react-redux";
+
 import { LoginAction, LoginSendOTPAction } from "../Actions/loginAction";
+import { toast } from "react-toastify";
 
 const SignIn = (props) => {
   const [phone, setPhone] = useState();
-  const [otp, setOtp] = useState();
+  const [phoneError, setPhoneError] = useState();
+
+  const [otp, setOTP] = useState();
   const otpStatus = useSelector((state) => state.loginSendOTPReducer);
 
   const { success, otpError } = otpStatus;
@@ -14,10 +20,6 @@ const SignIn = (props) => {
     dispatch(LoginSendOTPAction(phone));
   };
 
-  const redirectToSignUp = () => {
-    props.history.push("/SignUp");
-  };
-
   const hash = localStorage.getItem("hash");
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -25,29 +27,29 @@ const SignIn = (props) => {
   };
 
   return (
-    <div>
+    <div className="container-fluid">
       <div>
-        <h2 className="wrapper">
-          <div>
-            <span className="red_title">Ray-Ban</span>
-            <span className="style_title">My-Emailer</span>
+        <span className="style_title_signin">My-Emailer</span>
+      </div>
+      <p className="paragraph">
+        A unique marketing initiative <br /> exclusively for My-Emailer
+        Authorised Dealers.
+      </p>
+
+      <div className="row mt-4">
+        <div className="d-none d-md-block d-lg-block col-md-6  mt-4 ">
+          <div className="landing-img  border-left">
+            <img src={signInImage} alt="" className="w-80 maintain-order" />
           </div>
-          <p className="paragraph">
-            A unique marketing initiative <br /> exclusively for Ray-Ban
-            Authorised Dealers.
-          </p>
-
-          <div className="enlJuL">
+        </div>
+        <div className="col-md-6 ">
+          <div className="form-container ">
             <h5 className="black_title">SIGN IN</h5>
-            <p className="paragraph">
-              Please enter your mobile number. <br />
-              An OTP will be sent to this mobile number for authentication.
-            </p>
+            <p className="paragraph">Please enter your details to proceed</p>
 
-            <form className=" eSyZIh" onSubmit={handleSignIn}>
+            <form className="" onSubmit={handleSignIn}>
               <div id="recaptcha-container"></div>
-
-              <div className="sc-bTDOke dXiuJH">
+              <div className=" input_group">
                 <input
                   placeholder="Mobile Number"
                   type="text"
@@ -55,43 +57,53 @@ const SignIn = (props) => {
                   size="10"
                   minlength="10"
                   maxlength="10"
-                  className="input_field"
+                  className="input_field_outline"
                   onChange={(e) => setPhone(e.target.value)}
                 />
-                {otpError && <span class="error_msg">{otpError} </span>}
+                {phoneError &&
+                  Object.keys(phoneError).map((key) => {
+                    return <span className="error_msg">{phoneError[key]}</span>;
+                  })}
               </div>
-              <div className="sc-FRrlG cIjgB"></div>
-              <div className="sc-bTDOke dXiuJH">
+              <div className="sc-bTDOke input_group">
                 <input
                   type="text"
                   placeholder="Click to receive OTP"
-                  className="input_field_otp"
+                  className="input_field_outline"
                   pattern="[0-9]{6}"
-                  size="6"
                   minlength="6"
                   maxlength="6"
-                  onChange={(e) => setOtp(e.target.value)}
-                  disabled={success ? false : true}
+                  onChange={(e) => setOTP(e.target.value)}
+                  disabled={success ? false : false}
                 />
-                <button
-                  value="Resend&nbsp;Otp"
-                  onClick={handleSendOTP}
-                  className="otp_button"
-                >
-                  Send OTP
-                </button>
+                <div className="m-0">
+                  <p className="paragraph">
+                    <Link onClick={handleSendOTP} style={{ color: "red" }}>
+                      Click here to Generate OTP
+                    </Link>
+                  </p>
+                </div>
               </div>
-              <div className="sc-hOPeYd button_row">
-                <button type="submit" value="Verify" className="danger_button">
-                  Sign In
-                </button>
-                <button onClick={redirectToSignUp} className="outline_danger">
-                  Sign Up
-                </button>
+
+              <button
+                type="submit"
+                value="Verify"
+                style={{ float: "left" }}
+                className="danger_button"
+              >
+                Sign In
+              </button>
+              <div className=" input_group mt-0">
+                <p className="paragraph">
+                  Don't have an account ?{" "}
+                  <Link to="/signUp" style={{ color: "red" }}>
+                    Sign Up
+                  </Link>
+                </p>
               </div>
             </form>
           </div>
-        </h2>
+        </div>
       </div>
     </div>
   );

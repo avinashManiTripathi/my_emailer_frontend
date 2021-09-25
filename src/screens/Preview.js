@@ -3,8 +3,18 @@ import React, { useRef, useCallback, useEffect } from "react";
 import { toJpeg } from "html-to-image";
 import authHeader from "../Helper/auth-header";
 import { useDispatch, useSelector } from "react-redux";
-import { FindStoreByIdAction } from "../Actions/storeAction";
+import {
+  FindStoreByIdAction,
+  UploadUserEmailTemplateAction,
+} from "../Actions/storeAction";
 import { useHistory } from "react-router-dom";
+import addressImage from "../images/Address.png";
+
+import emailImage from "../images/Email.png";
+
+import phoneImage from "../images/Phone.png";
+import { toast } from "react-toastify";
+
 const Preview = () => {
   const dispatch = useDispatch();
   const storeId = localStorage.getItem("storeId");
@@ -19,27 +29,22 @@ const Preview = () => {
     if (ref.current === null) {
       return;
     }
+
+    toast.promise(
+      new Promise((resolve) => setTimeout(resolve, 3000)),
+      {
+        pending: "Saving Your Email Template",
+      },
+      { position: "top-center", autoClose: 10000 }
+    );
+
     toJpeg(ref.current, {
       cacheBust: true,
       imagePlaceholder: true,
       backgroundColor: "#ffffff",
     })
       .then(function (dataUrl) {
-        Axios.post(
-          "https://myemailer123.herokuapp.com/api/upload",
-          {
-            dataUrl,
-          },
-          {
-            headers: authHeader(),
-          }
-        )
-          .then((response) => {
-            history.push("/share");
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        dispatch(UploadUserEmailTemplateAction(dataUrl, history));
       })
 
       .catch((error) => {
@@ -47,7 +52,16 @@ const Preview = () => {
       });
   }, [ref]);
 
+  const handleOnReset = () => {
+    localStorage.removeItem("cropperImage");
+    localStorage.removeItem("storeId");
+    history.push("/edit");
+  };
+
   useEffect(() => {
+    if (!storeId || !cropperImage) {
+      history.push("/edit");
+    }
     dispatch(FindStoreByIdAction(storeId));
   }, [dispatch]);
 
@@ -98,6 +112,10 @@ const Preview = () => {
                 >
                   <div>
                     {/* <i class="fas fa-map-marker-alt pretxt_icon"></i> */}
+                    <img
+                      src={addressImage}
+                      style={{ width: 15, marginRight: 5, marginBottom: 5 }}
+                    />
                     <small className="pretxt">
                       {stores.store_address} {stores.state}
                       {stores.city} {stores.pin_code} :
@@ -105,10 +123,27 @@ const Preview = () => {
                   </div>
                   <div className="bod">
                     {/* <i class="fas fa-envelope pretxt_icon"></i> */}
+                    <img
+                      src={emailImage}
+                      style={{
+                        width: 24,
+                        marginRight: 5,
+                        marginBottom: 1,
+                        marginLeft: 5,
+                      }}
+                    />
                     <text className="pretxt"> {stores.email_address} : </text>
                   </div>
                   <div className="bod">
-                    {/* <i class="fas fa-phone-alt pretxt_icon"></i> */}
+                    <img
+                      src={phoneImage}
+                      style={{
+                        width: 16,
+                        marginRight: 1,
+                        marginBottom: 3,
+                        marginLeft: 3,
+                      }}
+                    />
                     <text className="pretxt"> {stores.mobile_number}</text>
                   </div>
                 </div>{" "}
@@ -123,7 +158,9 @@ const Preview = () => {
           <div className="col-md-7">
             <div className="row jcc aic mb-3 ">
               <div className="col-6 txtr">
-                <button className="raybtnn">Reset</button>
+                <button onClick={handleOnReset} className="raybtnn">
+                  Reset
+                </button>
               </div>
               <div className="col-6 txtl">
                 <button onClick={onButtonClick} className="raybtn">

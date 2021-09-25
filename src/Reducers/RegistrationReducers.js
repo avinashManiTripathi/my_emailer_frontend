@@ -8,14 +8,14 @@ import {
   USER_REGISTRATION_SUCCESS,
 } from "../Constants/RegistrationConstants";
 
-export const SendOTPReducer = (state = {}, action) => {
+export const SendSignUpOTPReducer = (state = {}, action) => {
   switch (action.type) {
     case SEND_OTP_REQUEST:
       return { success: true };
     case SEND_OTP_SUCCESS:
-      return { ...state, success: true };
+      return { success: true, data: action.paylaod };
     case SEND_OTP_FAIL:
-      return { success: false };
+      return { success: false, error: action.paylaod };
     default:
       return state;
   }
@@ -28,7 +28,7 @@ export const VerifyAndRegistrationReducer = (state = {}, action) => {
     case USER_REGISTRATION_SUCCESS:
       return { loading: false, data: action.paylaod };
     case USER_REGISTRATION_FAIL:
-      return { loading: false, reg_error: action.paylaod };
+      return { loading: true, reg_error: action.paylaod };
     default:
       return state;
   }
