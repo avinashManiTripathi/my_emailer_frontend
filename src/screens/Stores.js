@@ -6,9 +6,10 @@ import Loader from "../components/Loader";
 import { AddStore } from "../Actions/storeAction";
 import { useHistory, Link } from "react-router-dom";
 
-const Stores = () => {
+const Stores = (props) => {
   const FindStores = useSelector((state) => state.findStoreReducer);
-  useSelector((state) => state.storeDeleteReducer);
+  const deletedReducers = useSelector((state) => state.storeDeleteReducer);
+  const { deleted } = deletedReducers;
   const { loading, error, data } = FindStores;
   let storeLength = data ? data.length > 0 : false;
   const [handleLength, setHandleLength] = useState(false);
@@ -106,7 +107,7 @@ const Stores = () => {
             <div className="container mb-5 ">
               {/* {deleted && (
                 <div
-                  class="col align-center flot-none alert alert-success mt-4"
+                  className="col align-center flot-none alert alert-success mt-4"
                   role="alert"
                 >
                   Store Deleted Successfully

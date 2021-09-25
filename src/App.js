@@ -31,9 +31,6 @@ function App() {
           <Route path="/steps">
             <Protected Cmp={Steps}></Protected>
           </Route>
-          {/* <Route path="/form">
-            <Protected Cmp={Form}></Protected>
-          </Route> */}
           <Route path="/stores">
             <Protected Cmp={Stores}></Protected>
           </Route>

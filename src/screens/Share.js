@@ -8,6 +8,7 @@ import { findUserId } from "../Helper/auth-header";
 import { toast } from "react-toastify";
 
 toast.configure();
+
 const Share = () => {
   const dispatch = useDispatch();
 
@@ -26,6 +27,7 @@ const Share = () => {
       .querySelectorAll(".modal-backdrop")
       .forEach((el) => el.classList.remove("modal-backdrop"));
   }
+
   const onClickSendEmail = (e) => {
     e.preventDefault();
     handleCloseModal();
@@ -87,7 +89,7 @@ const Share = () => {
           }}
         >
           <div className="col-md-6 txtc">
-            <h1>SHARE YOUR My-Emailer</h1>
+            <h1>SHARE YOUR RAY-BAN E-MAILER</h1>
           </div>
         </div>
       </div>
@@ -185,49 +187,49 @@ const Share = () => {
       </div>
 
       <div
-        class="modal fade"
+        className="modal fade"
         id="whatsapp_modal"
         tabindex="-1"
         role="dialog"
         aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">
+        <div className="modal-dialog modal-dialog-centered" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLongTitle">
                 WhatsApp
               </h5>
             </div>
 
             <form onSubmit={onClickSendWhatsApp}>
-              <div class="modal-body">
-                <div class="col-auto">
-                  <label class="sr-only" for="inlineFormInputGroup">
+              <div className="modal-body">
+                <div className="col-auto">
+                  <label className="sr-only" for="inlineFormInputGroup">
                     Username
                   </label>
-                  <div class="input-group mb-2">
+                  <div className="input-group mb-2">
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       onChange={(e) => setWhatsInput(e.target.value)}
                       placeholder="Enter WhatsApp Number"
                     />
-                    <div class="input-group-prepend">
-                      <div class="input-group-text">WhatsApp</div>
+                    <div className="input-group-prepend">
+                      <div className="input-group-text">WhatsApp</div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  className="btn btn-secondary"
                   data-dismiss="modal"
                 >
                   Close
                 </button>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" className="btn btn-primary">
                   Send
                 </button>
               </div>
@@ -237,45 +239,45 @@ const Share = () => {
       </div>
 
       <div
-        class="modal fade"
+        className="modal fade"
         id="email_modal"
         tabindex="-1"
         role="dialog"
         aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true"
       >
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">
+        <div className="modal-dialog modal-dialog-centered" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLongTitle">
                 Email
               </h5>
             </div>
             <form onSubmit={onClickSendEmail}>
-              <div class="modal-body">
-                <div class="col-auto">
-                  <div class="input-group mb-2">
+              <div className="modal-body">
+                <div className="col-auto">
+                  <div className="input-group mb-2">
                     <input
                       type="email"
-                      class="form-control"
+                      className="form-control"
                       onChange={(e) => setEmailInput(e.target.value)}
                       placeholder="Enter Valid Email Address"
                     />
-                    <div class="input-group-prepend">
-                      <div class="input-group-text">Email</div>
+                    <div className="input-group-prepend">
+                      <div className="input-group-text">Email</div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  className="btn btn-secondary"
                   data-dismiss="modal"
                 >
                   Close
                 </button>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" className="btn btn-primary">
                   Send
                 </button>
               </div>

@@ -64,12 +64,7 @@ export const LoginSendOTPAction = (phone) => async (dispatch) => {
       });
     });
   } catch (error) {
-    toast.warn(
-      error.response && error.response.data.message
-        ? error.response.data.message
-        : error.message,
-      { position: "top-center" }
-    );
+    toast.warn(error.response.data.message, { position: "top-center" });
     dispatch({
       type: USER_LOGIN_SEND_OTP_FAIL,
       payload:

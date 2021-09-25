@@ -4,7 +4,6 @@ import signInImage from "../images/SignIn.jpg";
 import { useDispatch, useSelector } from "react-redux";
 
 import { LoginAction, LoginSendOTPAction } from "../Actions/loginAction";
-import { toast } from "react-toastify";
 
 const SignIn = (props) => {
   const [phone, setPhone] = useState();
@@ -13,7 +12,7 @@ const SignIn = (props) => {
   const [otp, setOTP] = useState();
   const otpStatus = useSelector((state) => state.loginSendOTPReducer);
 
-  const { success, otpError } = otpStatus;
+  const { success } = otpStatus;
   const dispatch = useDispatch();
   const handleSendOTP = (e) => {
     e.preventDefault();

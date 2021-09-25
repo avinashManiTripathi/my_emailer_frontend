@@ -1,7 +1,5 @@
-import Axios from "axios";
 import React, { useRef, useCallback, useEffect } from "react";
 import { toJpeg } from "html-to-image";
-import authHeader from "../Helper/auth-header";
 import { useDispatch, useSelector } from "react-redux";
 import {
   FindStoreByIdAction,
@@ -20,6 +18,7 @@ const Preview = () => {
   const storeId = localStorage.getItem("storeId");
   const ref = useRef(null);
   const Store = useSelector((state) => state.findStoreByIdReducer);
+  useSelector((state) => state.uploadCreatedImageReducer);
   const { stores } = Store;
   const blankImage = localStorage.getItem("blankImage");
   const cropperImage = localStorage.getItem("cropperImage");
@@ -33,7 +32,7 @@ const Preview = () => {
     toast.promise(
       new Promise((resolve) => setTimeout(resolve, 3000)),
       {
-        pending: "Saving Your Email Template",
+        pending: "uploading your Template",
       },
       { position: "top-center", autoClose: 10000 }
     );
@@ -111,10 +110,14 @@ const Preview = () => {
                   }}
                 >
                   <div>
-                    {/* <i class="fas fa-map-marker-alt pretxt_icon"></i> */}
                     <img
                       src={addressImage}
-                      style={{ width: 15, marginRight: 5, marginBottom: 5 }}
+                      alt=""
+                      style={{
+                        width: 15,
+                        marginRight: 5,
+                        marginBottom: 5,
+                      }}
                     />
                     <small className="pretxt">
                       {stores.store_address} {stores.state}
@@ -122,9 +125,9 @@ const Preview = () => {
                     </small>
                   </div>
                   <div className="bod">
-                    {/* <i class="fas fa-envelope pretxt_icon"></i> */}
                     <img
                       src={emailImage}
+                      alt=""
                       style={{
                         width: 24,
                         marginRight: 5,
@@ -137,6 +140,7 @@ const Preview = () => {
                   <div className="bod">
                     <img
                       src={phoneImage}
+                      alt=""
                       style={{
                         width: 16,
                         marginRight: 1,

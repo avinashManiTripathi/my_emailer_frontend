@@ -116,14 +116,14 @@ export const StoreDeleteReducer = (state = {}, action) => {
   }
 };
 
-export const UploadUserEmailTemplateReducer = (state = {}, action) => {
+export const UploadUserEmailTemplateReducers = (state = {}, action) => {
   switch (action.type) {
     case UPLOAD_TEMPLATE_REQUEST:
-      return { loading: false };
+      return { loading: true };
     case UPLOAD_TEMPLATE_SUCCESS:
-      return { ...state, loading: true, data: action.payload };
+      return { ...state, loading: false };
     case UPLOAD_TEMPLATE_FAIL:
-      return { loading: false, error: action.payload };
+      return { loading: true };
     default:
       return state;
   }

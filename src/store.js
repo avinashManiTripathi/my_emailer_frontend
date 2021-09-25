@@ -2,7 +2,7 @@ import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import thunk from "redux-thunk";
 import { LoginReducer, LoginSendOTPReducer } from "./Reducers/LoginReducers";
 import {
-  SendSignUpOTPReducer,
+  SendOTPReducer,
   VerifyAndRegistrationReducer,
 } from "./Reducers/RegistrationReducers";
 import {
@@ -13,7 +13,6 @@ import {
   StoreDeleteReducer,
   storeReducers,
   UpdateStoreReducers,
-  UploadUserEmailTemplateReducer,
 } from "./Reducers/storeReducer";
 
 const initialState = {};
@@ -21,7 +20,7 @@ const initialState = {};
 const reducer = combineReducers({
   addstore: storeReducers,
   findStoreReducer: FindAllStoreReducers,
-  sendOTPReducers: SendSignUpOTPReducer,
+  sendOTPReducers: SendOTPReducer,
   verifyAndRegistrationReducer: VerifyAndRegistrationReducer,
   loginSendOTPReducer: LoginSendOTPReducer,
   loginReducer: LoginReducer,
@@ -30,7 +29,6 @@ const reducer = combineReducers({
   sendImageToEmailReducers: SendImageToEmailReducers,
   sendImageToWhatsAppReducers: SendImageToWhatsAppReducers,
   updateStoreReducers: UpdateStoreReducers,
-  uploadUserEmailTemplateReducer: UploadUserEmailTemplateReducer,
 });
 
 const composeEnhancers =
