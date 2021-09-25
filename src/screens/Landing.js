@@ -26,13 +26,16 @@ const Landing = (props) => {
                 </p>
               </div>
             </div>
-            <div className="rayfont_container_left">
-              <button onClick={redirectToSteps} className="raylandingbtn ">
+            <div className="getStart-button w-100 ">
+              <button
+                onClick={redirectToSteps}
+                className="raylandingbtn float-left"
+              >
                 Get Started
               </button>
             </div>
           </div>
-          <div className="col-md-6 landing-img mt-5 ">
+          <div className="col-md-6 landing-img  ">
             <img
               src="https://myemailer123.herokuapp.com/images/Laptop+Mobile.png"
               alt=""

@@ -330,6 +330,10 @@ h1 {
 
 /* -----------------------------------End Loader ---------------------------------------------- */
 
+.getStart-button {
+  display: flex;
+}
+
 .border-left {
   border-right: 2px solid;
   border-image-slice: 1;
@@ -1075,10 +1079,26 @@ textarea {
   font-size: 1.3rem !important;
 }
 
+.generateOTP {
+  margin-top: -10px;
+  margin-bottom: 30px;
+  font-family: Lato-Regular !important;
+  color: #ff0d00;
+  font-size: 16px;
+  text-decoration: none;
+  opacity: 0.75;
+}
+.generateOTP:hover {
+  color: #ff0d00;
+}
 /*------------------------------------------------ ssdsds            --------------------------*/
 /* -------------------------------- End Edit  -------------------------------- */
 
 @media only screen and (max-width: 900px) {
+  .getStart-button {
+    display: unset;
+  }
+
   .react-responsive-modal-modal {
     position: absolute;
     width: 80%;

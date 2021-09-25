@@ -64,7 +64,7 @@ const SignIn = (props) => {
                     return <span className="error_msg">{phoneError[key]}</span>;
                   })}
               </div>
-              <div className="sc-bTDOke input_group">
+              <div className="input_group">
                 <input
                   type="text"
                   placeholder="Click to receive OTP"
@@ -75,13 +75,10 @@ const SignIn = (props) => {
                   onChange={(e) => setOTP(e.target.value)}
                   disabled={success ? false : false}
                 />
-                <div className="m-0">
-                  <p className="paragraph">
-                    <Link onClick={handleSendOTP} style={{ color: "red" }}>
-                      Click here to Generate OTP
-                    </Link>
-                  </p>
-                </div>
+
+                <Link onClick={handleSendOTP} className="generateOTP">
+                  Click here to Generate OTP
+                </Link>
               </div>
 
               <button

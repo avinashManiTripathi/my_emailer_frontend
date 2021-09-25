@@ -161,13 +161,9 @@ const SignUp = (props) => {
                     return <span className="error_msg">{otpError[key]}</span>;
                   })}
 
-                <div className="m-0">
-                  <p className="paragraph">
-                    <Link onClick={handleSendOTP} style={{ color: "red" }}>
-                      Click here to Generate OTP
-                    </Link>
-                  </p>
-                </div>
+                <Link onClick={handleSendOTP} className="generateOTP">
+                  Click here to Generate OTP
+                </Link>
               </div>
 
               <p className="paragraph">
