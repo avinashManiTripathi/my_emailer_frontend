@@ -21,7 +21,7 @@ const SignUp = (props) => {
 
   const handleSendOTP = (e) => {
     e.preventDefault();
-    dispatch(SendOTPAction(phone));
+    dispatch(SendOTPAction(phone, cc, dc));
   };
 
   const handleOnSub = (e) => {
