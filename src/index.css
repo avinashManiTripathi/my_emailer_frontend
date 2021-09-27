@@ -1264,8 +1264,8 @@ textarea {
   .cropperImage {
     margin-top: -120px;
     margin-bottom: 10px;
-    width: 130px;
-    height: 75px;
+    width: 90px;
+    height: 45px;
   }
   .pretxt {
     font-family: "Ray-BanSansVarGX";
@@ -1373,7 +1373,7 @@ textarea {
     font-size: 4rem;
   }
   .maintain-order {
-    margin-top: 3.5rem !important;
+    margin-top: 1rem !important;
     padding: 2.5rem;
     margin-bottom: -59px;
   }
@@ -1412,7 +1412,7 @@ textarea {
     border: 1px solid red;
   }
   .maintain-order {
-    margin-top: -3.5rem !important;
+    margin-top: 1rem !important;
     padding: 2.5rem;
     margin-bottom: -59px;
   }
@@ -1557,10 +1557,10 @@ textarea {
 
 @media only screen and (max-width: 600px) {
   .cropperImage {
-    margin-top: -120px;
+    margin-top: -140px;
     margin-bottom: 10px;
-    width: 130px;
-    height: 67px;
+    width: 100px;
+    height: 50px;
   }
   .pretxt {
     font-family: "Ray-BanSansVarGX";
@@ -1621,8 +1621,8 @@ textarea {
   .cropperImage {
     margin-top: -120px;
     margin-bottom: 10px;
-    width: 95px;
-    height: 48px;
+    width: 80px;
+    height: 40px;
   }
   .pretxt {
     font-family: "Ray-BanSansVarGX";
@@ -1647,8 +1647,8 @@ textarea {
   .cropperImage {
     margin-top: -120px;
     margin-bottom: 10px;
-    width: 84px;
-    height: 42px;
+    width: 70px;
+    height: 35px;
   }
   .pretxt {
     font-family: "Ray-BanSansVarGX";
