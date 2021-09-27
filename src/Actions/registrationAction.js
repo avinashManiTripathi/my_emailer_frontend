@@ -16,11 +16,14 @@ export const SendOTPAction =
       type: SEND_OTP_REQUEST,
     });
     try {
-      await Axios.post("http://localhost:5000/api/signup/send_otp", {
-        phone,
-        customer_code,
-        distributer_code,
-      }).then((response) => {
+      await Axios.post(
+        "https://myemailer123.herokuapp.com/api/signup/send_otp",
+        {
+          phone,
+          customer_code,
+          distributer_code,
+        }
+      ).then((response) => {
         localStorage.setItem("hash", response.data.hash);
         dispatch({
           type: SEND_OTP_SUCCESS,
