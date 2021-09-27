@@ -15,6 +15,7 @@ import Protected from "./Protected/Protected";
 
 import "react-toastify/dist/ReactToastify.css";
 import Preview from "./screens/Preview";
+import TermAndCondition from "./screens/TermAndCondition";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/steps">
             <Protected Cmp={Steps}></Protected>
           </Route>
+          <Route path="/termandconditions" component={TermAndCondition}></Route>
           <Route path="/stores">
             <Protected Cmp={Stores}></Protected>
           </Route>

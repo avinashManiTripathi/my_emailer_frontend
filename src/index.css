@@ -200,12 +200,35 @@ body {
 }
 .paragraph {
   font-family: Lato-Regular !important;
-  font-size: 16px;
+  font-size: 14px;
+  color: #000;
   margin-bottom: 20px;
-  margin-top: 10px;
-  opacity: 0.75;
+  margin-top: 5px;
+}
+.termCondition {
+  margin: 0px 50px;
 }
 
+.termCondition ol li,
+.termCondition p {
+  font-family: Lato-Regular !important;
+  font-size: 14px;
+  color: #000;
+  margin-bottom: 0px;
+  margin-top: 2px;
+  text-align: start;
+}
+
+.termCondition ol li span {
+  position: relative;
+  left: 10px;
+}
+
+.termCondition p span {
+  position: relative;
+  left: 15px;
+  text-align: end;
+}
 .paragraph_signin {
   font-family: Lato-Regular !important;
   font-size: 16px;
@@ -466,6 +489,7 @@ h1 {
 .style_title_signup {
   font-family: "Ray-BanSansVarGX";
   font-size: 43px;
+  font-weight: 500;
   color: rgb(167, 45, 36);
   text-transform: uppercase;
 }
@@ -1078,6 +1102,10 @@ textarea {
 @media only screen and (max-width: 900px) {
   .getStart-button {
     display: unset;
+  }
+
+  .termCondition {
+    margin: 0px 5px;
   }
 
   .react-responsive-modal-modal {

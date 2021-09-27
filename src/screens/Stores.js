@@ -107,7 +107,7 @@ const Stores = (props) => {
             <div className="container mb-5 ">
               {/* {deleted && (
                 <div
-                  className="col align-center flot-none alert alert-success mt-4"
+                  class="col align-center flot-none alert alert-success mt-4"
                   role="alert"
                 >
                   Store Deleted Successfully

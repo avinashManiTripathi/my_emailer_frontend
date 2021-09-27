@@ -62,10 +62,12 @@ const SignUp = (props) => {
 
     if (phone != null && phone.trim().length < 10) {
       phoneError.phoneErrorLength = "*Please Enter Valid Phone ";
+      isValid = false;
     }
 
     if (phone != null && phone.trim().length > 10) {
       phoneError.phoneErrorLength = "*Please Enter Valid Phone ";
+      isValid = false;
     }
 
     setOTACError(otacError);
@@ -148,7 +150,7 @@ const SignUp = (props) => {
               <div className=" input_group">
                 <input
                   type="text"
-                  placeholder="Click to receive OTP"
+                  placeholder="One Time Password(OTP)"
                   className="input_field_outline"
                   pattern="[0-9]{6}"
                   minlength="6"
@@ -168,8 +170,8 @@ const SignUp = (props) => {
 
               <p className="paragraph">
                 By clicking "Sign Up" <br /> you accept our
-                <div
-                  href="#"
+                <Link
+                  to="/termandconditions"
                   style={{
                     display: "inline-block",
                     textDecoration: "underline",
@@ -178,7 +180,7 @@ const SignUp = (props) => {
                   }}
                 >
                   Terms &amp; Conditions
-                </div>
+                </Link>
               </p>
 
               <button type="submit" value="Verify" className="danger_button">
