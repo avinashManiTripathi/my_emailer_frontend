@@ -114,7 +114,7 @@ const SignIn = (props) => {
               <div className="input_group">
                 <input
                   type="text"
-                  placeholder="One Time Password(OTP)"
+                  placeholder="One Time Password (OTP)"
                   className="input_field_outline"
                   pattern="[0-9]{6}"
                   minlength="6"
