@@ -76,7 +76,7 @@ const SignIn = (props) => {
   return (
     <div className="container-fluid">
       <div>
-        <span className="style_title_signin">My-Emailer</span>
+        <span className="style_title_sign">My-Emailer</span>
       </div>
       <p className="paragraph">
         A unique marketing initiative <br /> exclusively for My-Emailer

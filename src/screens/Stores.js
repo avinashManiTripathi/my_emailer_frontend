@@ -69,13 +69,13 @@ const Stores = (props) => {
       pinCode == null ||
       mobileNumber == null
     ) {
-      validationError.validationEmpty = "* Plese Enter All Fields ";
+      validationError.validationEmpty = "* Please Enter All Fields ";
       isValid = false;
     }
 
     if (emailAddress != null && !emailAddress.includes("@")) {
       validationError.emailAddressErrorEmpty =
-        "Plese Enter Valid Email Address ";
+        "* Please Enter Valid Email Address ";
       isValid = false;
     }
     if (mobileNumber != null && mobileNumber.trim().length < 10) {
@@ -105,14 +105,6 @@ const Stores = (props) => {
         <div>
           {storeLength ? (
             <div className="container mb-5 ">
-              {/* {deleted && (
-                <div
-                  class="col align-center flot-none alert alert-success mt-4"
-                  role="alert"
-                >
-                  Store Deleted Successfully
-                </div>
-              )} */}
               {data
                 ? data.map((store) => {
                     return (

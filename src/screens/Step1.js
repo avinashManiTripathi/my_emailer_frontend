@@ -70,8 +70,11 @@ function Step1(props) {
             flexDirection: "column",
           }}
         >
-          <text className="step_red_button">STEP 1</text>
-          <h1>CHOOSE FROM OUR TEMPLATES</h1>
+          <div className="txtc">
+            <text className="red_bg_title">Step 1</text>
+            <h1>CHOOSE FROM OUR TEMPLATES</h1>
+          </div>
+
           <div>
             <div className="container imgRow ">
               {Photos.map((data) => {

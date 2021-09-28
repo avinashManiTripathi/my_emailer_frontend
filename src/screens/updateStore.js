@@ -83,22 +83,22 @@ const UpdateStore = (props) => {
       store.city == null ||
       store.pin_code == null
     ) {
-      toast.error("* Plese Enter All Fields ");
+      toast.error("* Please Enter All Fields ");
       isValid = false;
     }
 
     if (store.email_address != null && !store.email_address.includes("@")) {
-      toast.error("Plese Enter Valid Email Address");
+      toast.error("* Please Enter Valid Email Address");
       isValid = false;
     }
 
     if (store.mobile_number != null && store.mobile_number.trim().length < 10) {
-      toast.error("Please Enter Valid Phone");
+      toast.error("* Please Enter Valid Phone");
       isValid = false;
     }
 
     if (store.mobile_number != null && store.mobile_number.trim().length > 10) {
-      toast.error("Please Enter Valid Phone");
+      toast.error("* Please Enter Valid Phone");
       isValid = false;
     }
     return isValid;

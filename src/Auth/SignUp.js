@@ -82,14 +82,14 @@ const SignUp = (props) => {
       <div>
         <h2 className="wrapper">
           <div>
-            <span className="style_title_signup">My-Emailer</span>
+            <span className="style_title_sign ">My-Emailer</span>
           </div>
-          <p className="paragraph">
+          <p className="paragraph mt-1">
             A unique marketing initiative <br /> exclusively for My-Emailer
             Authorised Dealers
           </p>
           <div className="form-container-signup">
-            <h5 className="black_title">SIGN UP</h5>
+            <h5 className="black_title mb-2">SIGN UP</h5>
             <p className="paragraph">
               Please enter your One Time Access Code &amp; <br />
               Luxottica Customer Code/Distributor Code.
@@ -169,7 +169,7 @@ const SignUp = (props) => {
               </div>
 
               <p className="paragraph">
-                By clicking "Sign Up" <br /> you accept our
+                By clicking "Sign Up" <br /> you accept our{" "}
                 <Link
                   to="/termandconditions"
                   style={{

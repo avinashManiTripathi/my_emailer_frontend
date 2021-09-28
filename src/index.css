@@ -49,17 +49,18 @@ body {
 }
 
 .input_field_outline {
-  font-size: 16px;
+  font-size: 14px;
   width: 100%;
   border-top: none;
   border-right: none;
   border-left: none;
   border-image: initial;
-  border-bottom: 2px solid rgb(221, 221, 221);
+  border-bottom: 1px solid rgb(41, 39, 39);
   text-align: left;
   font-family: Lato-Regular;
   margin-bottom: 15px;
   padding-bottom: 5px;
+  padding-left: 5px;
   outline: none;
 }
 
@@ -203,7 +204,7 @@ body {
   font-size: 14px;
   color: #000;
   margin-bottom: 20px;
-  margin-top: 5px;
+  margin-top: -5px;
 }
 .termCondition {
   margin: 0px 50px;
@@ -232,11 +233,16 @@ body {
 .paragraph_signin {
   font-family: Lato-Regular !important;
   font-size: 16px;
-  /* margin-bottom: 20px; */
   margin-top: 100px;
   margin-left: -218px !important ;
   opacity: 0.75;
   float: left;
+}
+.style_title_sign {
+  font-family: "Ray-BanSansVarGX";
+  font-size: 43px;
+  color: #a72d24;
+  text-transform: uppercase;
 }
 
 h1 {
@@ -355,6 +361,7 @@ h1 {
 
 .getStart-button {
   display: flex;
+  margin-left: 10px;
 }
 
 .border-left {
@@ -473,13 +480,13 @@ h1 {
   box-sizing: border-box;
 }
 
-.style_title_signin {
+.style_title {
   font-family: "Ray-BanSansVarGX";
   font-size: 43px;
   color: rgb(167, 45, 36);
   text-transform: uppercase;
 }
-/* .style_title_signin {
+/* .style_title {
 	font-family: 'Ray-BanSansVarGX';
 	font-size: 43px;
 	color: rgb(167, 45, 36);
@@ -587,6 +594,7 @@ h1 {
   font-weight: 700;
   margin-top: -20px;
   margin-bottom: 32px;
+  margin-left: 10px;
 }
 
 .rayfont_p_span {
@@ -1085,23 +1093,38 @@ textarea {
 }
 
 .generateOTP {
-  margin-top: -10px;
+  margin-top: -13px;
+  padding-left: 5px;
   margin-bottom: 30px;
   font-family: Lato-Regular !important;
   color: #ff0d00;
-  font-size: 16px;
+  font-size: 14px;
   text-decoration: none;
   opacity: 0.75;
 }
+
 .generateOTP:hover {
   color: #ff0d00;
 }
-/*------------------------------------------------ ssdsds            --------------------------*/
 /* -------------------------------- End Edit  -------------------------------- */
+
+@media only screen and (max-width: 1050px) {
+  .previewimg {
+    font-family: "lato";
+    height: 60px;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid red;
+    width: 120px !important;
+    font-size: 10px !important;
+    text-align: center !important;
+  }
+}
 
 @media only screen and (max-width: 900px) {
   .getStart-button {
     display: unset;
+    margin-left: unset;
   }
 
   .termCondition {
@@ -1274,12 +1297,14 @@ textarea {
     word-wrap: break-word;
   }
   .previewimg {
+    margin-top: -17px !important;
     font-family: "lato";
     height: 60px;
     background: #fff;
     border-radius: 5px;
     border: 1px solid red;
-    width: 120px !important;
+    width: 100px !important;
+    height: 50px;
     font-size: 10px !important;
     text-align: center !important;
   }
@@ -1429,6 +1454,7 @@ textarea {
     font-size: 1.5rem;
     font-weight: 700;
     margin-top: -13px;
+    margin-left: unset;
   }
   .mblock {
     display: block !important;
@@ -1557,8 +1583,7 @@ textarea {
 
 @media only screen and (max-width: 600px) {
   .cropperImage {
-    margin-top: -140px;
-    margin-bottom: 10px;
+    margin-top: -30px !important;
     width: 100px;
     height: 50px;
   }
@@ -1581,11 +1606,12 @@ textarea {
 
   .previewimg {
     font-family: "lato";
+    margin-top: -18px !important;
     height: 52px;
     background: #fff;
     border-radius: 5px;
     border: 1px solid red;
-    width: 120px !important;
+    width: 100px !important;
     font-size: 10px !important;
     text-align: center !important;
   }
@@ -1593,8 +1619,7 @@ textarea {
 
 @media only screen and (max-width: 500px) {
   .cropperImage {
-    margin-top: -120px;
-    margin-bottom: 10px;
+    margin-top: -2px !important;
     width: 100px;
     height: 50px;
   }
@@ -1619,7 +1644,7 @@ textarea {
 
 @media only screen and (max-width: 450px) {
   .cropperImage {
-    margin-top: -120px;
+    margin-top: -21px !important;
     margin-bottom: 10px;
     width: 80px;
     height: 40px;
@@ -1632,18 +1657,47 @@ textarea {
   }
 
   .previewimg {
+    margin-top: -16px !important;
     font-family: "lato";
     background: #fff;
     border-radius: 5px;
     border: 1px solid red;
     font-size: 10px;
     text-align: center;
-    width: 95px;
-    height: 48px;
+    width: 70px !important;
+    height: 35px !important;
+  }
+  .previewimg span {
+    font-size: 7px;
   }
 }
 
 @media only screen and (max-width: 380px) {
+  .raybtn,
+  .raybtnn {
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    font-family: Ray-BanSansVarGX;
+    margin-top: -10px;
+  }
+  .raybtnn {
+    background-color: #fff;
+    border: 1px solid red;
+    color: #000;
+    padding: 8.5px 40px;
+    border-radius: 4px;
+  }
+
+  .raybtn {
+    background-color: #ff0d00;
+    border: none;
+    color: #fff;
+    padding: 10px 40px;
+    border-radius: 4px;
+  }
+
   .cropperImage {
     margin-top: -120px;
     margin-bottom: 10px;
@@ -1652,24 +1706,64 @@ textarea {
   }
   .pretxt {
     font-family: "Ray-BanSansVarGX";
-    font-size: 10px;
+    font-size: 9px;
     max-width: 400px;
     word-wrap: break-word;
   }
 
+  .prev-icon {
+    margin: 0px 5px;
+    width: 7px;
+  }
+
   .previewimg {
+    margin-top: -16px !important;
     font-family: "lato";
     background: #fff;
     border-radius: 5px;
     border: 1px solid red;
-    width: 80px;
-    height: 42px;
+    width: 70px !important;
+    height: 35px !important;
     font-size: 10px !important;
     text-align: center !important;
   }
 }
 
-/* The Close Button */
+@media only screen and (max-width: 330px) {
+  .previewimg {
+    font-family: "lato";
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid red;
+    font-size: 10px;
+    text-align: center;
+    width: 60px !important;
+    height: 30px !important;
+  }
+  .previewimg span {
+    font-size: 5px;
+  }
+  .cropperImage {
+    margin-top: -18px !important;
+    margin-bottom: 10px;
+    width: 60px;
+    height: 30px;
+  }
+
+  .pretxt {
+    font-family: "Ray-BanSansVarGX";
+    font-size: 8px;
+    max-width: 400px;
+    word-wrap: break-word;
+  }
+
+  .prev-icon {
+    margin: 0px 5px;
+    width: 5px;
+  }
+}
+
+/*-------------------------------------------- The Close Button --------------------------------------------------- */
 
 .close {
   color: #aaaaaa;
@@ -1683,4 +1777,92 @@ textarea {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* ---------------------------------------------- Start models --------------------------------------- */
+
+.delete_modal-confirm {
+  color: #636363;
+  width: 350px !important;
+}
+.delete_modal-confirm .modal-content {
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  font-size: 14px;
+}
+.modal-confirm .modal-header {
+  border-bottom: none;
+  position: relative;
+}
+.delete_modal-confirm h4 {
+  text-align: center;
+  font-size: 26px;
+  margin: 30px 0 -10px;
+}
+.delete_modal-confirm .close {
+  position: absolute;
+  top: -5px;
+  right: -2px;
+}
+.delete_modal-confirm .modal-body {
+  color: #999;
+}
+.delete_modal-confirm .modal-footer {
+  border: none;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 13px;
+  padding: 10px 15px 25px;
+}
+.delete_modal-confirm .modal-footer a {
+  color: #999;
+}
+.delete_modal-confirm .icon-box {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  border-radius: 50%;
+  z-index: 9;
+  text-align: center;
+  border: 3px solid #f15e5e;
+}
+.delete_modal-confirm .icon-box i {
+  color: #f15e5e;
+  font-size: 46px;
+  display: inline-block;
+  margin-top: 13px;
+}
+.delete_modal-confirm .btn,
+.delete_modal-confirm .btn:active {
+  color: #fff;
+  border-radius: 4px;
+  background: #60c7c1;
+  text-decoration: none;
+  transition: all 0.4s;
+  line-height: normal;
+  min-width: 120px;
+  border: none;
+  min-height: 40px;
+  border-radius: 3px;
+  margin: 0 5px;
+}
+.delete_modal-confirm .btn-secondary {
+  background: #c1c1c1;
+}
+.delete_modal-confirm .btn-secondary:hover,
+.delete_modal-confirm .btn-secondary:focus {
+  background: #a8a8a8;
+}
+.modal-confirm .btn-danger {
+  background: #f15e5e;
+}
+.delete_modal-confirm .btn-danger:hover,
+.delete_modal-confirm .btn-danger:focus {
+  background: #ee3535;
+}
+.trigger-btn {
+  display: inline-block;
+  margin: 100px auto;
 }
