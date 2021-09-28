@@ -592,11 +592,12 @@ h1 {
   font-family: "Ray-BanSans-Light" !important;
   font-size: 2.2vw;
   font-weight: 700;
-  margin-top: -20px;
-  margin-bottom: 32px;
+  margin: 0px 0px;
   margin-left: 10px;
 }
-
+.reduceTop {
+  margin-top: -30px;
+}
 .rayfont_p_span {
   font-family: "Ray-BanSansInline-Bold100";
   color: #ff0d00 !important;
@@ -844,13 +845,13 @@ textarea {
 }
 
 .raylandingbtn {
+  margin-top: 10px;
   background-color: #ff0d00;
   border: none;
   color: #fff;
   font-size: 1.8vw;
-  padding: 10px 50px;
-  border-radius: 4px;
-  font-weight: bold;
+  padding: 5px 50px;
+  border-radius: 8px;
   font-family: Ray-BanSansVarGX;
 }
 
@@ -1449,11 +1450,16 @@ textarea {
     font-size: 24px;
     font-family: Ray-BanSansVarGX;
   }
+  .rayfont_1,
+  .rayfont_2,
+  .rayfont_3 {
+    font-size: 6rem;
+  }
   .rayfont_p {
-    font-family: "Ray-BanSans-Light";
-    font-size: 1.5rem;
+    font-family: Ray-BanSans-Light !important;
+    font-size: 2.5rem;
     font-weight: 700;
-    margin-top: -13px;
+    margin-top: 20px;
     margin-left: unset;
   }
   .mblock {
@@ -1648,6 +1654,19 @@ textarea {
     margin-bottom: 10px;
     width: 80px;
     height: 40px;
+  }
+
+  .rayfont_1,
+  .rayfont_2,
+  .rayfont_3 {
+    font-size: 4rem;
+  }
+  .rayfont_p {
+    font-family: Ray-BanSans-Light !important;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-left: unset;
   }
   .pretxt {
     font-family: "Ray-BanSansVarGX";

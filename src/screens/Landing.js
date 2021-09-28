@@ -13,13 +13,13 @@ const Landing = (props) => {
       <div className="container">
         <div className="row">
           <div className="col-md-6 content">
-            <div className=" mt-5 float-left ">
-              <div className="rayfont_container_left">
+            <div className=" mt-5 float-left  ">
+              <div className="rayfont_container_left mt-5 ">
                 <span className="rayfont_1"> YOU'RE</span>
                 <span className="rayfont_2">ON</span>
                 <span className="rayfont_3">AIR</span>{" "}
               </div>
-              <div className="rayfont_container_left ml-5 ">
+              <div className="rayfont_container_left ml-5 reduceTop">
                 <p className="rayfont_p">CREATE YOUR OWN My-Emailer</p>
                 <p className="rayfont_p rayfont_container_left">
                   IN JUST 3 EASY STEPS
