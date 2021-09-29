@@ -13,7 +13,7 @@ const Steps = (props) => {
         <div className="row">
           <div className="col-md-4">
             <div className="txtc">
-              <text className="red_bg_title">Step 1</text>
+              <text className="step_red_button">Step 1</text>
               <h1>CHOOSE FROM OUR TEMPLATES</h1>
               <img
                 src="https://myemailer123.herokuapp.com/images/Step-1.png"
@@ -23,7 +23,7 @@ const Steps = (props) => {
             </div>
           </div>
           <div className="col-md-4 txtc">
-            <text className="red_bg_title">step 2</text>
+            <text className="step_red_button">step 2</text>
             <h1>UPLOAD YOUR DETAILS</h1>
             <img
               src="https://myemailer123.herokuapp.com/images/Step-2.png"
@@ -32,7 +32,7 @@ const Steps = (props) => {
             />
           </div>
           <div className="col-md-4 txtc">
-            <text className="red_bg_title">step 3</text>
+            <text className="step_red_button">step 3</text>
             <h1 className="black_style_text">SHARE WITH YOUR CUSTOMERS</h1>
             <img
               src="https://myemailer123.herokuapp.com/images/Step-3.png"

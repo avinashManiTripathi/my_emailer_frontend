@@ -71,7 +71,7 @@ function Step1(props) {
           }}
         >
           <div className="txtc">
-            <text className="red_bg_title">Step 1</text>
+            <text className="step_red_button">Step 1</text>
             <h1>CHOOSE FROM OUR TEMPLATES</h1>
           </div>
 

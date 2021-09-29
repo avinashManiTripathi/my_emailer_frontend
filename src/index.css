@@ -6,26 +6,23 @@ body {
 }
 @font-face {
   font-family: "Ray-BanSans-Light";
-  src: url("../src/Ray-Ban-Sans/Web/Ray-BanSans-Light.woff");
+  src: url("../src/Fonts/Ray-Ban-Sans/Web/Ray-BanSans-Light.woff");
 }
-
 @font-face {
   font-family: "Ray-BanSansInline-Bold100";
-  src: url("../src/Web/Ray-BanSansInline-Bold100.woff");
+  src: url("../src/Fonts/Web/Ray-BanSansInline-Bold100.woff");
 }
-
 @font-face {
   font-family: "Ray-BanSansInline-Regular100";
-  src: url("../src/Web/Ray-BanSansInline-Regular100.woff");
+  src: url("../src/Fonts/Web/Ray-BanSansInline-Regular100.woff");
 }
 @font-face {
   font-family: "Ray-BanSansVarGX";
-  src: url("../src/Ray-Ban-Sans-Var/Ray-BanSansVarGX.ttf");
+  src: url("../src/Fonts/Ray-Ban-Sans-Var/Ray-BanSansVarGX.ttf");
 }
-
 @font-face {
   font-family: "Lato-Regular";
-  src: url("../src/lato/Lato-Regular.ttf");
+  src: url("../src/Fonts/lato/Lato-Regular.ttf");
 }
 
 .wrapper {
@@ -254,12 +251,11 @@ h1 {
   font-weight: 500;
   font-family: Ray-BanSansVarGX !important;
 }
-
 .step_red_button {
   background-color: rgb(255, 13, 0);
   border: none;
   color: white;
-  padding: 0.3% 3%;
+  padding: 10px 30px;
   font-size: 21px;
   border-radius: 4px;
   text-align: center;
@@ -267,7 +263,7 @@ h1 {
   display: inline-block;
   font-family: Ray-BanSansVarGX;
   width: 160px;
-  margin-bottom: -15px;
+  margin-bottom: 5px;
 }
 /* ------------------------------------End Title   ------------------------------------------- */
 
