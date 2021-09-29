@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   SendOTPAction,
   VerifyAndRegistrationAction,
@@ -24,12 +24,16 @@ const SignUp = (props) => {
     dispatch(SendOTPAction(phone, cc, dc));
   };
 
+  const history = useHistory();
+
   const handleOnSub = (e) => {
     const hash = localStorage.getItem("hash");
     e.preventDefault();
     const isValid = signUpFormValidation();
     if (isValid)
-      dispatch(VerifyAndRegistrationAction(otac, cc, dc, phone, otp, hash));
+      dispatch(
+        VerifyAndRegistrationAction(otac, cc, dc, phone, otp, hash, history)
+      );
   };
 
   const signUpFormValidation = () => {

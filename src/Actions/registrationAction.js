@@ -51,7 +51,15 @@ export const SendOTPAction =
   };
 
 export const VerifyAndRegistrationAction =
-  (one_time_access_code, customer_code, distributer_code, phone, otp, hash) =>
+  (
+    one_time_access_code,
+    customer_code,
+    distributer_code,
+    phone,
+    otp,
+    hash,
+    history
+  ) =>
   async (dispatch) => {
     dispatch({
       type: USER_REGISTRATION_REQUEST,
@@ -72,16 +80,15 @@ export const VerifyAndRegistrationAction =
         new Promise((resolve) => setTimeout(resolve, 3000)),
         {
           pending: "Sending    ",
-          success: "Register Successfully",
+          success: "Registered Successfully",
         },
         { position: "top-center" }
       );
-
-      console.log("data" + data);
       dispatch({
         type: USER_REGISTRATION_SUCCESS,
         payload: data,
       });
+      history.push("/signin");
     } catch (error) {
       toast.warn(error.response.data.message, { position: "top-center" });
 
