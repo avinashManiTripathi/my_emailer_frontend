@@ -85,8 +85,8 @@ const SignUp = (props) => {
             <span className="style_title_sign ">My-Emailer</span>
           </div>
           <p className="paragraph mt-1">
-            A unique marketing initiative <br /> exclusively for My-Emailer
-            Authorised Dealers
+            A unique marketing initiative <br /> exclusively for Authorised
+            Dealers
           </p>
           <div className="form-container-signup">
             <h5 className="black_title mb-2">SIGN UP</h5>
@@ -96,7 +96,7 @@ const SignUp = (props) => {
             </p>
             <form className="sc-jUfyBS eSyZIh" onSubmit={handleOnSub}>
               <div id="recaptcha-container"></div>
-              <div className=" input_group">
+              <div className=" input_group" style={{ marginBottom: "-3px" }}>
                 <input
                   placeholder="One Time Access Code"
                   type="text"
@@ -108,7 +108,7 @@ const SignUp = (props) => {
                     return <span className="error_msg">{otacError[key]}</span>;
                   })}
               </div>
-              <div className="row">
+              <div className="d-flex input_group">
                 <div className="col-md-5">
                   <input
                     type="text"
@@ -118,7 +118,7 @@ const SignUp = (props) => {
                   />
                 </div>
                 <div className="col-md-2">
-                  <div className="sc-fXazdy UjHkE">OR</div>
+                  <div className="ortext">OR</div>
                 </div>
                 <div className="col-md-5">
                   <input
@@ -130,7 +130,7 @@ const SignUp = (props) => {
                 </div>
               </div>
 
-              <div className=" input_group">
+              <div className="input_group">
                 <input
                   placeholder="Mobile Number"
                   type="text"

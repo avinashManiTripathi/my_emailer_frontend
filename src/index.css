@@ -465,7 +465,7 @@ h1 {
   box-shadow: rgb(62 62 62) 0px 0px 20px; */
   padding: 50px 100px;
   box-sizing: border-box;
-  float: right;
+  float: left;
 }
 
 .form-container-signup {
@@ -556,8 +556,8 @@ h1 {
   font-size: 14px;
 }
 
-.UjHkE {
-  margin-top: 2px;
+.ortext {
+  margin-top: 24px;
   font-size: 20px;
 }
 

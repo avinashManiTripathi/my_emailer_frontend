@@ -117,7 +117,7 @@ export const SendStoreImageToEmail = (email) => async (dispatch) => {
       new Promise((resolve) => setTimeout(resolve, 3000)),
       {
         pending: "Sending Email  ",
-        success: " Success check your Email👌",
+        success: " Success. Please check your email",
       },
       { position: "top-center" }
     );
@@ -130,7 +130,7 @@ export const SendStoreImageToEmail = (email) => async (dispatch) => {
       new Promise((resolve) => setTimeout(resolve, 3000)),
       {
         pending: "Sending Email  ",
-        error: "fail",
+        error: "failed",
       },
       { position: "top-center" }
     );
@@ -157,8 +157,7 @@ export const SendStoreImageToWhatsApp = (phone) => async (dispatch) => {
       new Promise((resolve) => setTimeout(resolve, 3000)),
       {
         pending: "Sending message  ",
-        success: " Success👌",
-        error: "Failed 🤯",
+        success: "Success. Please check your WhatsApp",
       },
       { position: "top-center" }
     );
@@ -277,7 +276,6 @@ export const UploadUserEmailTemplateAction =
         { dataUrl },
         { headers: authHeader() }
       ).then((response) => {
-        console.log("response", response.data);
         dispatch({
           type: UPLOAD_TEMPLATE_SUCCESS,
           payload: response.data,

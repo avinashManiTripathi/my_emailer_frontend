@@ -79,23 +79,22 @@ const SignIn = (props) => {
         <span className="style_title_sign">My-Emailer</span>
       </div>
       <p className="paragraph">
-        A unique marketing initiative <br /> exclusively for My-Emailer
-        Authorised Dealers.
+        A unique marketing initiative <br /> exclusively for Authorised Dealers.
       </p>
       <div className="row mt-4">
-        <div className="d-none d-md-block d-lg-block col-md-6  mt-4 ">
+        <div className="d-none d-md-block d-lg-block col-md-6  mt-4">
           <div className="landing-img  border-left">
             <img src={signInImage} alt="" className="w-80 maintain-order" />
           </div>
         </div>
-        <div className="col-md-6 ">
+        <div className="col-md-6">
           <div className="form-container ">
             <h5 className="black_title">SIGN IN</h5>
             <p className="paragraph">Please enter your details to proceed</p>
 
             <form className="" onSubmit={handleSignIn}>
               <div id="recaptcha-container"></div>
-              <div className=" input_group">
+              <div className=" input_group" style={{ marginBottom: "-3px" }}>
                 <input
                   placeholder="Mobile Number"
                   type="text"
