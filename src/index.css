@@ -529,7 +529,7 @@ h1 {
 .row.vertical-divider div[class^="col-"]:last-child {
   border-right: none;
 }
-.eSyZIh {
+.signup-form {
   width: 100%;
   margin: 0px auto;
   text-align: center;
@@ -1077,7 +1077,6 @@ textarea {
   border-radius: 10px;
   height: 39px;
 }
-
 .cnkbFD {
   background-color: rgb(255, 13, 0);
   border: none;
@@ -1092,7 +1091,6 @@ textarea {
   height: 55px;
   font-size: 1.3rem !important;
 }
-
 .generateOTP {
   margin-top: -13px;
   padding-left: 5px;
@@ -1101,11 +1099,11 @@ textarea {
   color: #ff0d00;
   font-size: 14px;
   text-decoration: none;
-  opacity: 0.75;
+  opacity: 0.5;
 }
-
 .generateOTP:hover {
   color: #ff0d00;
+  opacity: 1;
 }
 /* -------------------------------- End Edit  -------------------------------- */
 

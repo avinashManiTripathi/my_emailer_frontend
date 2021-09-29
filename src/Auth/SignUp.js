@@ -94,7 +94,7 @@ const SignUp = (props) => {
               Please enter your One Time Access Code &amp; <br />
               Luxottica Customer Code/Distributor Code.
             </p>
-            <form className="sc-jUfyBS eSyZIh" onSubmit={handleOnSub}>
+            <form className="signup-form mt-5" onSubmit={handleOnSub}>
               <div id="recaptcha-container"></div>
               <div className=" input_group" style={{ marginBottom: "-3px" }}>
                 <input

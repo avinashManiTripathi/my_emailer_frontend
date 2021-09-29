@@ -28,9 +28,14 @@ export const LoginAction = (phone, otp, hash, history) => async (dispatch) => {
       history.push("/landing");
     });
   } catch (error) {
-    toast.warn("something went wrong please try again", {
-      position: "top-center",
-    });
+    toast.warn(
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message,
+      {
+        position: "top-center",
+      }
+    );
     dispatch({
       type: USER_LOGIN_FAIL,
       payload:

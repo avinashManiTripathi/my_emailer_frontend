@@ -23,12 +23,12 @@ function Navbar(props) {
           <>
             <div
               type="button"
-              class="sc-Arkif link  "
+              class="link"
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
             >
-              My Account <span className="dropdown-toggle "></span>
+              My Account
             </div>
             <div class="dropdown-menu dropdown-menu-right">
               <Link class="dropdown-item" onClick={handleLogoutClick}>
